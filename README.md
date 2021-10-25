@@ -11,3 +11,25 @@ INTEGRANTES:
 - FANOLA TARAZONA, JONATHAN HERNAN
 - RAMOS RIVAS, KEVIN KEYLER
 - ZENOBIO PARIASCA, EDGAR ALONSO
+
+## Indicaciones estructura de directorios
+
+* assets: archivos estáticos de front
+    * css: archivo main.css para personalización de estilos
+    * img: imágenes
+    * js: archivos javascript
+
+* includes: componentes reutilizables de front
+* documents: documentacion del proyecto
+
+## Tecnologías
+
+* Frontend: 
+    * HTML5 (al inicio)
+    * CSS3
+    * Bootstrap
+    * JavaScript
+
+* Backend: 
+    * PHP
+    * MySQL

@@ -1,3 +1,10 @@
+
+closeBtn.addEventListener("click", ()=>{
+    sidebar.classList.toggle("open");
+    menuBtnChange();//calling the function(optional)
+  });
+  
+// following are the code to change sidebar button(optional)
 if(sidebar.classList.contains("open")){
     document.getElementById('hogar').style.display='block';
     document.getElementById('hogar2').style.display='block';

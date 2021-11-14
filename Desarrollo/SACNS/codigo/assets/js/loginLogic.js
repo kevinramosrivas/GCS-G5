@@ -63,3 +63,44 @@ const showLogin = (e) => {
 
     showVolver();
 }
+
+const showVolver = () => {
+    volver.classList.remove('d-none');
+}
+
+const volverAccion = () => {
+    form.classList.add('d-none');
+    volver.classList.add('d-none');
+    containerBtnRoles.classList.remove('d-none');
+}
+
+const validateForm = (e) => {
+    e.preventDefault();
+    const idValue = id.value;
+    const passwordValue = password.value;
+
+    if (idValue === '' || passwordValue === '') {
+        swal.fire({
+            title: 'Error',
+            text: 'Debe completar todos los campos',
+            icon: 'error',
+            confirmButtonText: 'Aceptar',
+            confirmButtonColor: '#48BB78'
+        })
+        return;
+    }
+
+    if (!idValue.match(/^[0-9]+$/)) {
+        swal.fire({
+            title: 'Error',
+            text: 'El ID debe ser un número',
+            icon: 'error',
+            confirmButtonText: 'Aceptar',
+            confirmButtonColor: '#48BB78'
+        })
+        return;
+    }
+
+    form.submit();
+}
+

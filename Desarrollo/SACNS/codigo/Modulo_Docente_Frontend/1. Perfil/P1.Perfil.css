@@ -105,7 +105,56 @@
 .btn1:hover{
     font-size: large;
 }
+.datosper{
+    margin-top: 100px;
+    height: 500px;
+    width: 94%;
+    margin-left: 3.5em;
+    padding-left: 15px;
+}
+.bio-desk{
+    position: relative;
+    width: 50%;
+}
+.bio-desk h4 {
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 50,4px;
+    color: #2D3748;
+}
 
+.panel{
+    border: 1px #fff;
+    border-radius: 20px;
+    padding: 20px;
+    background: #FFF;
+    margin-bottom: 20px;
+    margin: 10px;
+    height: 100%;
+    overflow: auto;
+}
+
+.panel p {
+    padding-left: 20px;
+    font-weight: 550;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+    background-color: #fff;
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #718096;
+
+}
+
+.datosper .row {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    position: relative;
+    justify-content: flex-start;
+    height: 100%;
+
+}
 .red, .terques{
     background: none;
     margin-bottom: 30px;

@@ -1,0 +1,44 @@
+body{
+    margin-top:20px;
+    background-color: #f7f7fc;
+    }
+
+.h3{
+    margin: 25px auto; 
+    font-family:'Times New Roman', Times, serif;  
+    }
+
+.timeline {
+    list-style-type: none;
+    position: relative
+}
+
+.timeline:before {
+    background: #dee2e6;
+    left: 9px;
+    width: 2px;
+    height: 100%
+}
+
+.fila{
+    text-align: center center; 
+}
+
+.subtext{
+    text-align: left;
+    font-family:'Times New Roman', Times, serif !important;
+}
+
+.sub2{
+    text-align: left;  
+    font-family:Georgia, 'Times New Roman', Times, serif, cursive;
+    color:rgb(146, 209, 199);
+    }
+    
+    .timeline-item:before,
+    .timeline:before {
+        content: " ";
+        display: inline-block;
+        position: absolute;
+        z-index: 1
+    }

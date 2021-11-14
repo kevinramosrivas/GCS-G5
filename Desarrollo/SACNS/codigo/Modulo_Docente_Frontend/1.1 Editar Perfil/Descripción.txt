@@ -1,3 +1,0 @@
-Realización de la pantalla para editar perfil. 
-
-*No se especificó en el Documento de Guía de Estilos

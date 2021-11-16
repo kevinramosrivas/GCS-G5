@@ -8,7 +8,18 @@
 </head>
 
 <body>
-    
+    <h1>Autenticacion ok</h1>
+    <?php
+        session_start();
+
+        if(isset($_SESSION['datos_usuario'])) {
+            if($_SESSION['role'] == 'padre'){
+                echo "Bienvenido padre ".$_SESSION['datos_usuario']['nombres'];
+            }
+        }
+
+
+    ?>
 </body>
 
 </html>

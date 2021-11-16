@@ -25,11 +25,22 @@
                 echo "Bienvenido alumno ".$_SESSION['datos_usuario']['nombres'];
             }
 
+            else if($_SESSION['role']=='administrador'){
+                header('Location: admin_principal.php');
+            }
             
+        }
+
+        else {
+            header("location: login.php");
         }
 
 
     ?>
+<<<<<<< HEAD
+>>>>>>> Pedro
+=======
+    <a href="src/cerrar_sesion.php">cerrar sesion</a>    
 >>>>>>> Pedro
 </body>
 

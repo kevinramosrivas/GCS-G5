@@ -13,7 +13,7 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     
         <link rel="stylesheet" href="assets/css/sidebar.css">
-    <link href="assets/css/docente_notas.css" rel="stylesheet">
+    <link href="assets/2.Notas/P2.Nota_por_Mes_Docente.css" rel="stylesheet">
     <link rel="shortcut icon" href="assets/img/logo.png" type="image/x-icon">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
@@ -22,7 +22,7 @@
 
 <body>
 
-    <?php include("src/notas_por_mes.php") ?>
+    <?php include("src/4.1.notas_por_mes.php") ?>
 
     <?php require_once('includes/sidebar_docente.php') ?>
     <div>

@@ -12,12 +12,12 @@
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/css/sidebar.css">
-    <link href="assets/css/perfil.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/0.Sidebar/sidebar.css">
+    <link href="assets/1.a)Perfil/perfil.css" rel="stylesheet">
 </head>
 
 <body>
-    <?php require_once('src/info_perfil_docente.php') ?>
+    <?php require_once('src/1.1.info_perfil_docente.php') ?>
     <?php require_once('includes/sidebar_docente.php') ?>
     <div>
         <div class="contenedor">
@@ -62,6 +62,6 @@
 
     </div>
 
-    <script src="assets/js/sidebar.js"></script>
+    <script src="assets/0.Sidebar/sidebar.js"></script>
 
 </body>

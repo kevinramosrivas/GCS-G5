@@ -92,7 +92,7 @@
                 </div>
             </div>
         </div>
-        <script src="assets/js/sidebar.js"></script>
+        <script src="assets/0.Sidebar/sidebar.js"></script>
 </body>
 
    

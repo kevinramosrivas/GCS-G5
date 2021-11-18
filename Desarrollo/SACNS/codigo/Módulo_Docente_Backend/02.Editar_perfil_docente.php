@@ -123,5 +123,5 @@
               </div>
     </div>
     
-    <script src="assets/js/sidebar.js"></script>
+    <script src="assets/0.SideBar/sidebar.js"></script>
 </body>

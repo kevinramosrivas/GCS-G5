@@ -13,7 +13,7 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     
         <link rel="stylesheet" href="assets/css/sidebar.css">
-    <link href="assets/2.Notas/P2.Nota_por_Mes_Docente.css" rel="stylesheet">
+    <link href="assets/css/P2.Nota_por_Mes_Docente.css" rel="stylesheet">
     <link rel="shortcut icon" href="assets/img/logo.png" type="image/x-icon">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
@@ -92,7 +92,7 @@
                 </div>
             </div>
         </div>
-        <script src="assets/0.Sidebar/sidebar.js"></script>
+        <script src="assets/js/sidebar.js"></script>
 </body>
 
    

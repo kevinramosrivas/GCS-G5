@@ -8,7 +8,8 @@ closeBtn.addEventListener("click", ()=>{
   });
   
 // following are the code to change sidebar button(optional)
-if(sidebar.classList.contains("open")){
+function menuBtnChange(){
+    if(sidebar.classList.contains("open")){
     document.getElementById('hogar').style.display='block';
     document.getElementById('hogar2').style.display='block';
     document.getElementById('nav-list').classList.remove('d-none');
@@ -20,4 +21,5 @@ if(sidebar.classList.contains("open")){
       document.getElementById('hogar2').style.display='none';
       document.getElementById('nav-list').classList.add('d-none');
     }
+  }
      

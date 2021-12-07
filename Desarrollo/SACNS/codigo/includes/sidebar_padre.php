@@ -45,7 +45,7 @@
                 <span class="tooltip">Editar</span>
             </li>
             <li>
-                <a href="cerrar_sesion.php">
+                <a href="src/cerrar_sesion.php">
                     <i class='bx bx-exit'></i>
                     <span class="links_name">Salir</span>
                 </a>

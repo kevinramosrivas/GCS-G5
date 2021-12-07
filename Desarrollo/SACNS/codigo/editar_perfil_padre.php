@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -9,10 +12,10 @@
   <link rel="shortcut icon" href="assets/img/logo.png" type="image/x-icon">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <link rel="stylesheet" href="assets/0.Sidebar/sidebar.css">
+  <link rel="stylesheet" href="assets/css/sidebar.css">
 </head>
 <body>
-    <?php require_once('includes/sidebar_docente.php') ?>
+    <?php require_once('includes/sidebar_padre.php') ?>
     <div class="container mt-5 ml-5 p-5">
         <div class="col">
             <div class="row">
@@ -123,5 +126,5 @@
               </div>
     </div>
     
-    <script src="assets/0.SideBar/sidebar.js"></script>
+    <script src="assets/js/sidebar.js"></script>
 </body>

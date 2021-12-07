@@ -1,8 +1,5 @@
 
-<? /*este bloque de código funcionará luego de la implementación de validar_sesion.php, por tanto se referenció una ubicación hipotética parael mismo*/
-php require_once('src/validar_sesion.php') ?>
-    
-    <div class="sidebar">
+<div class="sidebar">
         <div class="logo-details">
             <div id="logoprin" class='bx bxs-graduation icon' color="blue"></div>
             <div class="logo_name">E. SAN MARCOS</div>
@@ -10,30 +7,30 @@ php require_once('src/validar_sesion.php') ?>
         </div>
         <ul class="nav-list d-none" id="nav-list">
             <li>
-                <a href="perfil_docente.php" onclick="">
+                <a href="perfil_padre.php" onclick="">
                     <i class='bx bx-building-house'></i>
                     <span class="links_name">Principal</span>
                 </a>
                 <span class="tooltip">Principal</span>
             </li>
             <li>
-                <a href="cursos_cargo_docente.php">
+                <a href="cursos_padre.php">
                     <i class='bx bx-notepad'></i>
-                    <span class="links_name">Ingreso de Notas</span>
+                    <span class="links_name">Reporte de Notas</span>
                 </a>
                 <span class="tooltip">Notas</span>
             </li>
             <li>
-                <a href="asistencia.php">
+                <a href="inasistencias_padre.php">
                     <i class='bx bxs-x-square'></i>
-                    <span class="links_name">Registro de Faltas</span>
+                    <span class="links_name">Reporte de Faltas</span>
                 </a>
                 <span class="tooltip">Faltas</span>
             </li>
             <li>
-                <a href="observaciones.php">
+                <a href="observaciones_padre.php">
                     <i class='bx bx-file-find'></i>
-                    <span class="links_name">Generar Observaciones</span>
+                    <span class="links_name">Reporte Observaciones</span>
                 </a>
                 <span class="tooltip">Observaciones</span>
             </li>
@@ -41,14 +38,14 @@ php require_once('src/validar_sesion.php') ?>
                 <p>Tu cuenta</p>
             </div>
             <li>
-                <a href="editar_perfil_docente.php">
+                <a href="editar_perfil_padre.php">
                     <i class='bx bxs-wrench'></i>
                     <span class="links_name">Editar</span>
                 </a>
                 <span class="tooltip">Editar</span>
             </li>
             <li>
-                <a href="src/cerrar_sesion.php">
+                <a href="cerrar_sesion.php">
                     <i class='bx bx-exit'></i>
                     <span class="links_name">Salir</span>
                 </a>

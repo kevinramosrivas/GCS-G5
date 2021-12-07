@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -7,18 +10,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Perfil</title>
     <link rel="shortcut icon" href="assets/img/logo.png" type="image/x-icon">
-    <!-- <link rel="stylesheet" href="/path/to/cdn/bootstrap.min.css" /> -->
-
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/sidebar.css">
-    <link href="assets/css/1.a)Perfil.css" rel="stylesheet">
+    <link href="assets/css/perfil.css" rel="stylesheet">
 </head>
 
 <body>
-    <?php require_once('src/1.1.info_perfil_docente.php') ?>
-    <?php require_once('includes/sidebar_docente.php') ?>
+    <?php require_once('src/info_perfil_docente.php') ?>
+    <?php require_once('includes/sidebar_padre.php') ?>
     <div>
         <div class="contenedor">
             <div class="main-body">

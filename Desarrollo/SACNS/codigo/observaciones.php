@@ -32,9 +32,6 @@
     </style>
 </head>
   <body>
-  <?php
-        include('src/7.1.observacion.php');
-    ?>
     <?php require_once('includes/sidebar_docente.php') ?>
    
     <div class="container mt-5 ml-5 p-5">

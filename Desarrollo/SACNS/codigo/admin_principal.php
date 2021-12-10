@@ -74,7 +74,7 @@
                             <p class="text-secondary" id="textLoginPage">Hola, "nombre" estas son las opciones que tiene.</p>
                         </div>
                         <div class="row mx-auto" id="containerBtnRoles">
-                            <a href="registro_tipo_usuario.html">
+                            <a href="registro_tipo_usuario.php">
                                 <div href="#" id="btnCrearUsuario" class="d-block shadow box-pre-login pointer bg-2nd text-decoration-none text-black rounded border-sacns-ge p-2 d-flex align-items-center mt-4 col-lg-10">
                                     <div class="bg-1st p-3 pb-2 ms-2 me-4 polygon">
                                         <i class="far fa-user fs-5 text-white"></i>

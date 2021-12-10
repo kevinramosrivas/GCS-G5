@@ -49,7 +49,7 @@
         $sql = "INSERT INTO `asignatura` (`asignatura_id`, `nivel_id`, `docente_id`, `nombre`) VALUES ('$asignatura_id', '1' , '$docente_id', '$especialidad')";
         var_dump($sql);
         mysqli_query($conexion, $sql);
-        //header("location: ../registro_tipo_usuario.html");
+        header("location: ../registro_tipo_usuario.html");
     }
     else{
         header("location: ../admin_principal.php");

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-12-2021 a las 17:31:32
--- Versión del servidor: 8.0.26
--- Versión de PHP: 7.4.20
+-- Tiempo de generación: 10-12-2021 a las 19:00:49
+-- Versión del servidor: 10.4.22-MariaDB
+-- Versión de PHP: 8.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,13 +28,20 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `administrador` (
-  `adminitrador_id` int NOT NULL,
+  `administrador_id` int(11) NOT NULL,
   `usuario` varchar(50) COLLATE utf16_spanish_ci NOT NULL,
   `contrasenia` varchar(100) COLLATE utf16_spanish_ci NOT NULL,
   `nombres` varchar(50) COLLATE utf16_spanish_ci NOT NULL,
   `apellidos` varchar(50) COLLATE utf16_spanish_ci NOT NULL,
   `especialidad` varchar(100) COLLATE utf16_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `administrador`
+--
+
+INSERT INTO `administrador` (`administrador_id`, `usuario`, `contrasenia`, `nombres`, `apellidos`, `especialidad`) VALUES
+(1234, 'admin', 'admin', 'Mario', 'Huapaya', 'Maestro');
 
 -- --------------------------------------------------------
 
@@ -43,8 +50,8 @@ CREATE TABLE `administrador` (
 --
 
 CREATE TABLE `alumno` (
-  `alum_id` int NOT NULL,
-  `nivel_id` int NOT NULL,
+  `alum_id` int(11) NOT NULL,
+  `nivel_id` int(11) NOT NULL,
   `nombres` varchar(20) COLLATE utf16_spanish_ci NOT NULL,
   `apellidos` varchar(20) COLLATE utf16_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_spanish_ci;
@@ -56,9 +63,9 @@ CREATE TABLE `alumno` (
 --
 
 CREATE TABLE `asignatura` (
-  `asignatura_id` int NOT NULL,
-  `nivel_id` int NOT NULL,
-  `docente_id` int NOT NULL,
+  `asignatura_id` int(11) NOT NULL,
+  `nivel_id` int(11) NOT NULL,
+  `docente_id` int(11) NOT NULL,
   `nombre` varchar(50) COLLATE utf16_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_spanish_ci;
 
@@ -69,14 +76,14 @@ CREATE TABLE `asignatura` (
 --
 
 CREATE TABLE `docente` (
-  `docente_id` int NOT NULL,
+  `docente_id` int(11) NOT NULL,
   `usuario` varchar(50) COLLATE utf16_spanish_ci NOT NULL,
   `contrasenia` varchar(100) COLLATE utf16_spanish_ci NOT NULL,
   `nombres` varchar(20) COLLATE utf16_spanish_ci NOT NULL,
   `apellidos` varchar(20) COLLATE utf16_spanish_ci NOT NULL,
-  `asignatura_id` int NOT NULL,
+  `asignatura_id` int(11) NOT NULL,
   `email` varchar(100) COLLATE utf16_spanish_ci NOT NULL,
-  `celular` int NOT NULL,
+  `celular` int(11) NOT NULL,
   `especialidad` varchar(200) COLLATE utf16_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_spanish_ci;
 
@@ -87,9 +94,9 @@ CREATE TABLE `docente` (
 --
 
 CREATE TABLE `falta_asistencia` (
-  `id` int NOT NULL,
-  `asignatura_id` int NOT NULL,
-  `alum_id` int NOT NULL,
+  `id` int(11) NOT NULL,
+  `asignatura_id` int(11) NOT NULL,
+  `alum_id` int(11) NOT NULL,
   `descripción` varchar(10) COLLATE utf16_spanish_ci NOT NULL,
   `fecha` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_spanish_ci;
@@ -101,9 +108,9 @@ CREATE TABLE `falta_asistencia` (
 --
 
 CREATE TABLE `nivel` (
-  `nivel_id` int NOT NULL,
+  `nivel_id` int(11) NOT NULL,
   `nivel` varchar(10) COLLATE utf16_spanish_ci NOT NULL,
-  `año` int NOT NULL
+  `año` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_spanish_ci;
 
 -- --------------------------------------------------------
@@ -113,11 +120,11 @@ CREATE TABLE `nivel` (
 --
 
 CREATE TABLE `nota` (
-  `nota_id` int NOT NULL,
-  `asignatura_id` int NOT NULL,
-  `alum_id` int NOT NULL,
-  `trimestre` int NOT NULL,
-  `nota` int NOT NULL
+  `nota_id` int(11) NOT NULL,
+  `asignatura_id` int(11) NOT NULL,
+  `alum_id` int(11) NOT NULL,
+  `trimestre` int(11) NOT NULL,
+  `nota` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_spanish_ci;
 
 -- --------------------------------------------------------
@@ -127,9 +134,9 @@ CREATE TABLE `nota` (
 --
 
 CREATE TABLE `observación` (
-  `obs_id` int NOT NULL,
-  `id_alum` int NOT NULL,
-  `id_asig` int NOT NULL,
+  `obs_id` int(11) NOT NULL,
+  `id_alum` int(11) NOT NULL,
+  `id_asig` int(11) NOT NULL,
   `descripción` varchar(255) COLLATE utf16_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_spanish_ci;
 
@@ -140,14 +147,14 @@ CREATE TABLE `observación` (
 --
 
 CREATE TABLE `padre` (
-  `padre_id` int NOT NULL,
+  `padre_id` int(11) NOT NULL,
   `usuario` varchar(50) COLLATE utf16_spanish_ci NOT NULL,
   `contrasenia` varchar(100) COLLATE utf16_spanish_ci NOT NULL,
   `nombres` varchar(20) COLLATE utf16_spanish_ci NOT NULL,
   `apellidos` varchar(20) COLLATE utf16_spanish_ci NOT NULL,
-  `alum_id` int NOT NULL,
+  `alum_id` int(11) NOT NULL,
   `email` varchar(100) COLLATE utf16_spanish_ci NOT NULL,
-  `celular` int NOT NULL
+  `celular` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_spanish_ci;
 
 --
@@ -158,7 +165,7 @@ CREATE TABLE `padre` (
 -- Indices de la tabla `administrador`
 --
 ALTER TABLE `administrador`
-  ADD PRIMARY KEY (`adminitrador_id`),
+  ADD PRIMARY KEY (`administrador_id`),
   ADD UNIQUE KEY `usuario_2` (`usuario`),
   ADD KEY `usuario` (`usuario`);
 
@@ -232,49 +239,49 @@ ALTER TABLE `padre`
 -- AUTO_INCREMENT de la tabla `administrador`
 --
 ALTER TABLE `administrador`
-  MODIFY `adminitrador_id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `administrador_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1235;
 
 --
 -- AUTO_INCREMENT de la tabla `alumno`
 --
 ALTER TABLE `alumno`
-  MODIFY `alum_id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `alum_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `asignatura`
 --
 ALTER TABLE `asignatura`
-  MODIFY `asignatura_id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `asignatura_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `docente`
 --
 ALTER TABLE `docente`
-  MODIFY `docente_id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `docente_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `falta_asistencia`
 --
 ALTER TABLE `falta_asistencia`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `nivel`
 --
 ALTER TABLE `nivel`
-  MODIFY `nivel_id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `nivel_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `observación`
 --
 ALTER TABLE `observación`
-  MODIFY `obs_id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `obs_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `padre`
 --
 ALTER TABLE `padre`
-  MODIFY `padre_id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `padre_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restricciones para tablas volcadas

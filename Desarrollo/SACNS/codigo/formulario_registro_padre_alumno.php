@@ -78,24 +78,23 @@
                 
                 <div class="container ml-4" id="containerLoginPageRight">
                     <div>
-                        <h5 class="fw-bold fs-4" id="titleLoginPage">¡Bienvenido, Administrador!</h5>
-                        <p class="text-secondary" id="textLoginPage">Hola, "nombre" estas son las opciones que tiene.</p>
+                        <h5 class="fw-bold fs-4" id="titleLoginPage">Registro Padre</h5>
                     </div>
                 </div>
                 <div class="container ml-4 mt-2" id="containerLoginPageRight">
            
-                    <form>
+                    <form action="src/registrar_padre_alumno_logic.php" method="POST" >
                         <div class="mb-1">
                             <p class="label-color mb-1">Nombres*</p>
-                            <input type="text" class="form-control" placeholder="Nombres" required/>
+                            <input type="text" class="form-control" placeholder="Nombres" name="nombresPadre" required />
                         </div>
                         <div class="mb-1">
                             <p class="label-color mb-1">Apellidos*</p>
-                            <input type="text" class="form-control" placeholder="Apellidos" required/>
+                            <input type="text" class="form-control" placeholder="Apellidos" name="apellidosPadre" required/>
                         </div>
                         <div class="mb-1">
                             <p class="label-color mb-1">DNI*</p>
-                            <input type="text" class="form-control" placeholder="DNI" />
+                            <input type="text" class="form-control" placeholder="DNI"  name = "dniPadre"/>
                         </div>
                         <div class="mb-1">
                             <p class="label-color mb-1">Celular*</p>
@@ -103,18 +102,36 @@
                                 <div class="input-group-prepend" style="height: 80px;">
                                   <span class="input-group-text" style="height: 80%;"><img src="assets/img/peru.png" alt="" style="height: 20px; width: 30px; margin-right: 4px;"/>+51</span>
                                 </div>
-                                <input type="tel" id="phone" class="form-control" placeholder="999-999-999"   pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" required />
+                                <input type="tel" id="phone" class="form-control" placeholder="999-999-999"   pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" name="celularPadre" required />
                             </div>
-                              
-    
                         </div>
                         <div class="mb-1">
                             <p class="label-color mb-1">Correo electronico*</p>
-                            <input type="email" class="form-control" placeholder="Correo" required/>
+                            <input type="email" class="form-control" placeholder="Correo" name="emailPadre" required/>
                         </div>
-                         <div class="mt-5">
-                            <button class="btn btn-colors d-block w-100">SIGUIENTE</button>
-                            <input type="submit" class="btn btn-colors d-block w-100 d-none" value="REGISTRAR" />
+                        <br>
+                        <h5 class="fw-bold fs-4" id="titleLoginPage">Registro Alumno</h5>
+                        <div class="mb-1">
+                            <p class="label-color mb-1">Nombres*</p>
+                            <input type="text" class="form-control" placeholder="Nombres" name="nombresAlumno" required />
+                        </div>
+                        <div class="mb-1">
+                            <p class="label-color mb-1">Apellidos*</p>
+                            <input type="text" class="form-control" placeholder="Apellidos" name="apellidosAlumno" required />
+                        </div>
+                        <div class="mb-1">
+                            <p class="label-color mb-1">DNI*</p>
+                            <input type="text" class="form-control" placeholder="DNI" name="dniAlumno" pattern="[0-9]{8}" required />
+                        </div>
+                        <div class="mb-1">
+                            <p class="label-color mb-1">Grado*</p>
+                            <select class="form-select" aria-label="Default select example" name="gradoAlumno">
+                                <option selected>Seleccione</option>
+                                <option value="1">1ero de Secundaria</option>
+                            </select>
+                        </div>
+                        <div class="mt-5">
+                            <button class="btn btn-colors d-block w-100" type="submit">SIGUIENTE</button>
                         </div>
                     </form>
                 </div>

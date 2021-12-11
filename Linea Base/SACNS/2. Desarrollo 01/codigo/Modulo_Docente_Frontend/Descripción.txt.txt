@@ -1,0 +1,8 @@
+En esta carpeta se realizara las distintas pantallas descritas en la
+guía de estilo del modulo docente.
+
+Los encargados de este modulo son:
+- Carhuamaca Puentes, Albert Antonio
+- Lázaro Escobar, Vivian Rosmery
+- Llerena Castillo, Valeria Estefania
+

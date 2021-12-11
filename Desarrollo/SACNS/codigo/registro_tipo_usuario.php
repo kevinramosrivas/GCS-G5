@@ -78,7 +78,7 @@
                             <p class="text-secondary" id="textLoginPage">Hola, "nombre" seleccione el tipo de usuario que quiere crear.</p>
                         </div>
                         <div class="row mx-auto" id="containerBtnRoles">
-                            <a href="formulario_registro_alumno.php">
+                            <a href="formulario_registro_padre_alumno.php">
                                 <div href="#" id="btnCrearAlumno" class="d-block shadow box-pre-login pointer bg-2nd text-decoration-none text-black rounded border-sacns-ge p-2 d-flex align-items-center mt-4 col-lg-10">
                                     <div class="bg-1st p-3 pb-2 ms-2 me-4 polygon">
                                         <i class="far fa-user fs-5 text-white"></i>

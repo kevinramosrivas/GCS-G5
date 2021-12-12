@@ -1,5 +1,4 @@
 <?php include 'includes/header.php' ?>
-
 <main>
 
         <?php
@@ -20,7 +19,7 @@
                             <img src="assets/img/admin_prueba.png" alt="admin-foto" />
                             <div class="text-white ms-3">
                                 <p class="fw-bold fst-italic mb-0">Administrador</p>
-                                <p class="mb-0">nombre@ejemplo.com</p>
+                                <p class="mb-0"> <?php echo($_SESSION['datos_usuario']['nombres'].' '.$_SESSION['datos_usuario']['apellidos'])?> </p>
                             </div>
                         </div>
 
@@ -71,7 +70,7 @@
                     <div class="container mx-lg-5" id="containerLoginPageRight">
                         <div>
                             <h5 class="fw-bold fs-4" id="titleLoginPage">¡Bienvenido, Administrador!</h5>
-                            <p class="text-secondary" id="textLoginPage">Hola, "nombre" estas son las opciones que tiene.</p>
+                            <p class="text-secondary" id="textLoginPage">Hola, <?php echo($_SESSION['datos_usuario']['nombres'].' '.$_SESSION['datos_usuario']['apellidos'])?> seleccione el tipo de usuario que quiere crear.</p>
                         </div>
                         <div class="row mx-auto" id="containerBtnRoles">
                             <a href="registro_tipo_usuario.php">

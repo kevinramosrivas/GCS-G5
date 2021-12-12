@@ -15,7 +15,12 @@
     $sql = "SELECT * FROM `alumno` WHERE alum_id = '$dniAlumno'";
     $result = mysqli_query($conexion, $sql);
     $count = mysqli_num_rows($result);
-    if($count !== 1) {
+    
+    $sql = "SELECT * FROM `padre` WHERE padre_id = '$dniPadre'";
+    $result = mysqli_query($conexion, $sql);
+    $count2 = mysqli_num_rows($result);
+
+    if($count !== 1 && $count2 !== 1) {
         $sql = "INSERT INTO `alumno` (`alum_id`, `nivel_id`, `nombres`, `apellidos`) 
         VALUES ('$dniAlumno', '$gradoAlumno' , '$nombresAlumno', '$apellidosAlumno')";
         mysqli_query($conexion, $sql);
@@ -24,10 +29,16 @@
         VALUES ('$dniPadre', '$nombresPadre', '$dniPadre', '$nombresPadre', '$apellidosPadre', '$dniAlumno', '$emailPadre', '$celularPadre')";
         var_dump($sql);
         mysqli_query($conexion, $sql);
-        header("location: ../admin_principal.php");
+        header("location: ../registrar_padre_Aalumno.php?mensaje=1");
     }
     else{
-        header("location: ../admin_prinicipal.php?error=1");
+        if($count == 1){
+            header("location: ..//registrar_padre_Aalumno.php?error=1");
+        }
+        if($count2 == 1){
+            header("location: ..//registrar_padre_Aalumno.php?error=2");
+        }
+        
     }
     
 ?>

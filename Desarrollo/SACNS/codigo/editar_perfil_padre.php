@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -6,76 +9,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Editar Perfil</title>
-  <link rel="shortcut icon" href="..\Imagenes\logo.png" type="image/x-icon">
+  <link rel="shortcut icon" href="assets/img/logo.png" type="image/x-icon">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <link rel="stylesheet" href="..\0. SideBar\sidebar.css">
+  <link rel="stylesheet" href="assets/css/sidebar.css">
 </head>
 <body>
-  <div class="sidebar">
-    <div class="logo-details">
-        <div id="logoprin" class='bx bxs-graduation icon' color="blue"></div>
-        <div class="logo_name">E. SAN MARCOS</div>
-        <i class='bx bx-menu' id="btn"></i>
-    </div>
-    <ul class="nav-list d-none" id="nav-list">
-        <li>
-            <a href="#" onclick="">
-                <i class='bx bx-building-house'></i>
-                <span class="links_name">Principal</span>
-            </a>
-            <span class="tooltip">Principal</span>
-        </li>
-        <li>
-            <a href="#">
-                <i class='bx bx-notepad'></i>
-                <span class="links_name">Ingreso de Notas</span>
-            </a>
-            <span class="tooltip">Notas</span>
-        </li>
-        <li>
-            <a href="#">
-                <i class='bx bxs-x-square'></i>
-                <span class="links_name">Registro de Faltas</span>
-            </a>
-            <span class="tooltip">Faltas</span>
-        </li>
-        <li>
-            <a href="#">
-                <i class='bx bx-file-find'></i>
-                <span class="links_name">Generar Observaciones</span>
-            </a>
-            <span class="tooltip">Observaciones</span>
-        </li>
-        <div id="hogar">
-            <p>Tu cuenta</p>
-        </div>
-        <li>
-            <a href="#">
-                <i class='bx bxs-wrench'></i>
-                <span class="links_name">Editar</span>
-            </a>
-            <span class="tooltip">Editar</span>
-        </li>
-        <li>
-            <a href="#">
-                <i class='bx bx-exit'></i>
-                <span class="links_name">Salir</span>
-            </a>
-            <span class="tooltip">Salir</span>
-        </li>
-        <div id="hogar2">
-            <p>Documentación</p>
-        </div>
-        <li>
-            <a href="#">
-                <i class='bx bx-help-circle'></i>
-                <span class="links_name">Ayuda</span>
-            </a>
-            <span class="tooltip">Ayuda</span>
-        </li>
-    </ul>
-</div> 
+    <?php require_once('includes/sidebar_padre.php') ?>
     <div class="container mt-5 ml-5 p-5">
         <div class="col">
             <div class="row">
@@ -93,8 +33,8 @@
                         </div>
                         <div class="col d-flex flex-column flex-sm-row justify-content-between mb-3">
                           <div class="text-center text-sm-left mb-2 mb-sm-0">
-                            <h4 class="pt-sm-2 pb-1 mb-0 text-nowrap">John Smith</h4>
-                            <p class="mb-0">nombre@ejemplo.com</p>
+                            <h4 class="pt-sm-2 pb-1 mb-0 text-nowrap"> <?php echo $_SESSION['datos_usuario']['nombres'].' '.$_SESSION['datos_usuario']['apellidos'] ?> </h4>
+                            <p class="mb-0"> <?php echo $_SESSION['datos_usuario']['email'] ?> </p>
                             <div class="mt-2">
                               <button class="btn btn-primary" type="button">
                                 <i class="fa fa-fw fa-camera"></i>
@@ -109,20 +49,20 @@
                       </ul>
                       <div class="tab-content pt-3">
                         <div class="tab-pane active">
-                          <form class="form" novalidate="">
+                          <form class="form" novalidate="" method="POST" action="src/editar_docente.php">
                             <div class="row">
                               <div class="col">
                                 <div class="row">
                                   <div class="col">
                                     <div class="form-group">
                                       <label>Nombre: </label>
-                                      <input class="form-control" type="text" name="name" placeholder="John Smith" value="John Smith">
+                                      <input class="form-control" type="text" name="name" disabled value="<?php echo $_SESSION['datos_usuario']['nombres'].' '.$_SESSION['datos_usuario']['apellidos'] ?>">
                                     </div>
                                   </div>
                                   <div class="col">
                                     <div class="form-group">
                                       <label>Teléfono</label>
-                                      <input class="form-control" type="number" name="username" placeholder="***-***-***" value="***-***-***">
+                                      <input class="form-control" type="number" name="celular" placeholder="***-***-***" value="<?php echo $_SESSION['datos_usuario']['celular']?>">
                                     </div>
                                   </div>
                                 </div>
@@ -130,7 +70,7 @@
                                   <div class="col">
                                     <div class="form-group">
                                       <label>Correo:</label>
-                                      <input class="form-control" type="text" placeholder="user@example.com">
+                                      <input class="form-control" type="text" name="email"  placeholder="user@example.com" value="<?php echo $_SESSION['datos_usuario']['email'] ?>" >
                                     </div>
                                   </div>
                                 </div>
@@ -138,7 +78,7 @@
                                     <div class="col">
                                       <div class="form-group">
                                         <label>Dirección:</label>
-                                        <input class="form-control" type="text" placeholder="Los Olivos -Comas">
+                                        <input class="form-control" type="text" name="direccion" placeholder="Los Olivos - Comas" value="<?php echo $_SESSION['datos_usuario']['direccion'] ?>" >
                                       </div>
                                     </div>
                                   </div>
@@ -159,7 +99,7 @@
                                   <div class="col">
                                     <div class="form-group">
                                       <label>Nueva Contraseña</label>
-                                      <input class="form-control" type="password" placeholder="••••••">
+                                      <input class="form-control" name="contrasenia" type="password" placeholder="••••••">
                                     </div>
                                   </div>
                                 </div>
@@ -186,5 +126,5 @@
               </div>
     </div>
     
-    <script src="..\0. SideBar\sidebar.js"></script>
+    <script src="assets/js/sidebar.js"></script>
 </body>

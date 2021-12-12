@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-12-2021 a las 06:02:05
+-- Tiempo de generación: 12-12-2021 a las 21:46:28
 -- Versión del servidor: 10.4.22-MariaDB
 -- Versión de PHP: 8.0.13
 
@@ -87,13 +87,6 @@ CREATE TABLE `docente` (
   `especialidad` varchar(200) COLLATE utf16_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_spanish_ci;
 
---
--- Volcado de datos para la tabla `docente`
---
-
-INSERT INTO `docente` (`docente_id`, `usuario`, `contrasenia`, `nombres`, `apellidos`, `asignatura_id`, `email`, `celular`, `especialidad`) VALUES
-(21298425, 'MARIO JORGEPEREZ RAMOS', '21298425', 'Mario Jorge', 'Perez Ramos', 4, 'marlenirivasmacassi@gmail.com', 934, 'Ciencia,Tecnologia y Ambiente');
-
 -- --------------------------------------------------------
 
 --
@@ -151,7 +144,8 @@ CREATE TABLE `observación` (
   `obs_id` int(11) NOT NULL,
   `id_alum` int(11) NOT NULL,
   `id_asig` int(11) NOT NULL,
-  `descripción` varchar(255) COLLATE utf16_spanish_ci NOT NULL
+  `descripción` varchar(255) COLLATE utf16_spanish_ci NOT NULL,
+  `fecha_observacion` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_spanish_ci;
 
 -- --------------------------------------------------------

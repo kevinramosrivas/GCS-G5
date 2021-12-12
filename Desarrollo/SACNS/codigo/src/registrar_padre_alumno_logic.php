@@ -24,6 +24,10 @@
         VALUES ('$dniPadre', '$nombresPadre', '$dniPadre', '$nombresPadre', '$apellidosPadre', '$dniAlumno', '$emailPadre', '$celularPadre')";
         var_dump($sql);
         mysqli_query($conexion, $sql);
+        header("location: ../admin_principal.php");
+    }
+    else{
+        header("location: ../admin_prinicipal.php?error=1");
     }
     
 ?>

@@ -74,14 +74,6 @@
                                     </div>
                                   </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col">
-                                      <div class="form-group">
-                                        <label>Dirección:</label>
-                                        <input class="form-control" type="text" name="direccion" placeholder="Los Olivos - Comas" value="<?php echo $_SESSION['datos_usuario']['direccion'] ?>" >
-                                      </div>
-                                    </div>
-                                  </div>
                               </div>
                             </div>
                             <div class="row">

@@ -30,6 +30,7 @@
                     <div class="texto">
                         <h2> <?php echo $_SESSION['datos_usuario']['nombres'].' '.$_SESSION['datos_usuario']['apellidos'] ?> </h2>
                         <h3> <?php echo $_SESSION['datos_usuario']['email'] ?> </h3>
+                        <h3> ASIGNATURA ID: <?php echo $_SESSION['datos_usuario']['asignatura_id'] ?> </h3>
                     </div>
                     <a href="perfil_docente.php" class="btn d-flex align-items-center"><i class='bx bxs-user-pin'></i> General  </a>
                     <a href="editar_perfil_docente.php" class="btn d-flex align-items-center"><i class='bx bxs-wrench'></i> Editar</a>
@@ -42,11 +43,9 @@
                     <div class="panel">
                         <h4 class="red">Información Personal</h4>
                         <p>Nombre Completo: <?php echo $_SESSION['datos_usuario']['nombres'].' '.$_SESSION['datos_usuario']['apellidos'] ?> </p>
-                        <p>Edad: <?php echo $_SESSION['datos_usuario']['edad'] ?> </p>
                         <p>Teléfono: <?php echo $_SESSION['datos_usuario']['celular'] ?> </p>
                         <p>Correo electronico: <?php echo $_SESSION['datos_usuario']['email'] ?> </p>
-                        <p>Dirección:  <?php echo $_SESSION['datos_usuario']['direccion'] ?> </p>
-                        <p>DNI: <?php echo $_SESSION['datos_usuario']['dni'] ?> </p>
+                        <p>DNI: <?php echo $_SESSION['datos_usuario']['docente_id'] ?> </p>
                         <p>Tipo de Usuario: Docente</p>
                     </div>
                 </div>
@@ -54,7 +53,6 @@
                     <div class="panel">
                         <h4 class="terques">Datos Academicos </h4>
                         <p>Código: <?php echo $_SESSION['datos_usuario']['docente_id'] ?> </p>
-                        <p>Correo Institucional: <?php echo $_SESSION['datos_usuario']['correo_insti'] ?> </p>
                         <p>Especialidad: <?php echo $_SESSION['datos_usuario']['especialidad'] ?> </p>
                     </div>
                 </div>

@@ -1,3 +1,10 @@
+<?php
+    session_start();
+
+    if(!isset($_SESSION['datos_usuario']) || !$_SESSION['role']=='admin') {
+        header("Location: login.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -21,7 +28,7 @@
                             <img src="assets/img/admin_prueba.png" alt="admin-foto" />
                             <div class="text-white ms-3">
                                 <p class="fw-bold fst-italic mb-0">Administrador</p>
-                                <p class="mb-0">nombre@ejemplo.com</p>
+                                <p class="mb-0"> <?php echo($_SESSION['datos_usuario']['nombres'].' '.$_SESSION['datos_usuario']['apellidos'])?> </p>
                             </div>
                         </div>
 
@@ -57,7 +64,7 @@
                                 <path d="M9.8627 2.225L8.37936 0.75L0.137695 9L8.3877 17.25L9.8627 15.775L3.0877 9L9.8627 2.225Z" fill="#8692A6"/>
                             </svg>
                     
-                            <a href="admin_principal.php">Volver</a>
+                            <a href="admin_principal.php" class="mb-0 ms-2 text-secondary">Volver</a>
                         </div>
                         <div id="volver" class="d-flex align-items-center mb-5 pointer d-none">
                             <svg width="10" height="18" viewBox="0 0 10 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -75,10 +82,10 @@
                     <div class="container mx-lg-5" id="containerLoginPageRight">
                         <div>
                             <h5 class="fw-bold fs-4" id="titleLoginPage">¡Bienvenido, Administrador!</h5>
-                            <p class="text-secondary" id="textLoginPage">Hola, "nombre" seleccione el tipo de usuario que quiere crear.</p>
+                            <p class="text-secondary" id="textLoginPage">Hola, <?php echo($_SESSION['datos_usuario']['nombres'].' '.$_SESSION['datos_usuario']['apellidos'])?> seleccione el tipo de usuario que quiere crear.</p>
                         </div>
                         <div class="row mx-auto" id="containerBtnRoles">
-                            <a href="formulario_registro_padre_alumno.php">
+                            <a href="registro_padre_alumno.php">
                                 <div href="#" id="btnCrearAlumno" class="d-block shadow box-pre-login pointer bg-2nd text-decoration-none text-black rounded border-sacns-ge p-2 d-flex align-items-center mt-4 col-lg-10">
                                     <div class="bg-1st p-3 pb-2 ms-2 me-4 polygon">
                                         <i class="far fa-user fs-5 text-white"></i>

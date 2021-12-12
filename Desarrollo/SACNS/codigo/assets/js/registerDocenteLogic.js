@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (urlParams.get('error') == '2') {
-        showError('Ya existe en el sistema un profesor con este DNI');
+        showError('Ya existe en el sistema un usuario con este DNI');
     }
 
     if (urlParams.get('mensaje') == '1') {
@@ -68,4 +68,5 @@ const validateForm = (e) => {
     }
 
     form.submit();
+    form.reset();
 }

@@ -1,6 +1,5 @@
 <?php
     include('conexion_db.php');
-    var_dump($_POST);
     $nombresPadre = $_POST['nombresPadre'];
     $apellidosPadre = $_POST['apellidosPadre'];
     $dniPadre = $_POST['dniPadre'];
@@ -20,9 +19,15 @@
         $sql = "INSERT INTO `alumno` (`alum_id`, `nivel_id`, `nombres`, `apellidos`) 
         VALUES ('$dniAlumno', '$gradoAlumno' , '$nombresAlumno', '$apellidosAlumno')";
         mysqli_query($conexion, $sql);
+        var_dump($sql);
         $sql = "INSERT INTO `padre` (`padre_id`, `usuario`, `contrasenia`, `nombres`, `apellidos`, `alum_id`, `email`, `celular`) 
-        VALUES ('$dniPadre', $nombresPadre, '$dniPadre', '$nombresPadre', '$apellidosPadre', '$dniAlumno', '$emailPadre', '$celularPadre')";
+        VALUES ('$dniPadre', '$nombresPadre', '$dniPadre', '$nombresPadre', '$apellidosPadre', '$dniAlumno', '$emailPadre', '$celularPadre')";
+        var_dump($sql);
         mysqli_query($conexion, $sql);
+        header("location: ../admin_principal.php");
+    }
+    else{
+        header("location: ../admin_prinicipal.php?error=1");
     }
     
 ?>

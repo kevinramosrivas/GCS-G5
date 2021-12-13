@@ -1,6 +1,6 @@
-
+<!--
 <? /*este bloque de código funcionará luego de la implementación de validar_sesion.php, por tanto se referenció una ubicación hipotética parael mismo*/
-php require_once('src/validar_sesion.php') ?>
+//php require_once 'src/validar.sesion.php' ?> -->
     
     <div class="sidebar">
         <div class="logo-details">
@@ -24,7 +24,7 @@ php require_once('src/validar_sesion.php') ?>
                 <span class="tooltip">Notas</span>
             </li>
             <li>
-                <a href="asistencia.php">
+                <a href="../../P2.Registrar asistencia.php">
                     <i class='bx bxs-x-square'></i>
                     <span class="links_name">Registro de Faltas</span>
                 </a>

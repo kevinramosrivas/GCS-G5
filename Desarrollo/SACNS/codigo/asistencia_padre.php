@@ -40,28 +40,28 @@
       </div>
       <ul class="nav-list d-none" id="nav-list">
           <li>
-              <a href="#" onclick="">
+              <a href="..\codigo\perfil_padre.php" onclick="">
                   <i class='bx bx-building-house'></i>
                   <span class="links_name">Principal</span>
               </a>
               <span class="tooltip">Principal</span>
           </li>
           <li>
-              <a href="#">
+              <a href="..\codigo\tablas_notas_padre.php">
                   <i class='bx bx-notepad'></i>
-                  <span class="links_name">Ingreso de Notas</span>
+                  <span class="links_name">Registro de Notas</span>
               </a>
               <span class="tooltip">Notas</span>
           </li>
           <li>
-              <a href="#">
+              <a href="..\codigo\inasistencias_padre.php">
                   <i class='bx bxs-x-square'></i>
                   <span class="links_name">Registro de Faltas</span>
               </a>
               <span class="tooltip">Faltas</span>
           </li>
           <li>
-              <a href="#">
+              <a href="..\codigo\observaciones_padre.php">
                   <i class='bx bx-file-find'></i>
                   <span class="links_name">Generar Observaciones</span>
               </a>
@@ -71,14 +71,14 @@
               <p>Tu cuenta</p>
           </div>
           <li>
-              <a href="#">
+              <a href="../codigo/Modulo_Docente_Frontend/1.1 Editar Perfil/P1.Editar_Perfil.php">
                   <i class='bx bxs-wrench'></i>
                   <span class="links_name">Editar</span>
               </a>
               <span class="tooltip">Editar</span>
           </li>
           <li>
-              <a href="#">
+              <a href="..\codigo\login.php">
                   <i class='bx bx-exit'></i>
                   <span class="links_name">Salir</span>
               </a>

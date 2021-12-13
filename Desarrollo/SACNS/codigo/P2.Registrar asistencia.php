@@ -11,15 +11,16 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-        <link href="asistenciap2.css" rel="stylesheet"> 
+        <link href="../codigo/Modulo_Docente_Frontend/3.Asistencia/P2.Registrar asistencia.css" rel="stylesheet">
         <link rel="stylesheet" href="https://unpkg.com/multiple-select@1.5.2/dist/multiple-select.min.css">
-        <link rel="stylesheet" href="..\0. SideBar\sidebar.css">
+        <link rel="stylesheet" href="../codigo/Modulo_Docente_Frontend/0. SideBar/sidebar.css">
     </head>
 
 
     <hr>
     
-<body>          
+<body>  
+
     <div class="sidebar">
         <div class="logo-details">
             <div id="logoprin" class='bx bxs-graduation icon' color="blue"></div>
@@ -151,7 +152,7 @@
                 });
         });
             </script>
-            <script src="..\0. SideBar\sidebar.js"></script>
+            <script src="../codigo/Modulo_Docente_Frontend/0. SideBar/sidebar.js"></script>
        
 </body>
 

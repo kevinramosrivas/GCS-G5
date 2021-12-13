@@ -1,6 +1,10 @@
 <?php
-session_start();
+if (!isset($_SESSION)) {
+    session_start();
+}
+error_reporting(0);
 ?>
+
 
 <?php
 
@@ -9,28 +13,21 @@ require_once '../codigo/src/conexion_db.php';
 $consulta = "SELECT * FROM alumno";
 $res = mysqli_query($conexion, $consulta);
 
-
 if ($_SERVER["REQUEST_METHOD"] === 'POST') {
-
-    /*
-    echo '<pre>';
-    var_dump($_POST);
-    echo '</pre>';
-
-    exit; */
 
     $alum_id = $_POST['alum_id'];
     $fecha = $_POST['fecha'];
+    $descripcion = $_POST['descripcion'];
 
     $id_asig = $_SESSION['datos_usuario']['asignatura_id'];
 
-    foreach($alum_id as $ai){
-        $query = "INSERT INTO falta_asistencia(asignatura_id,alum_id,fecha) 
-        VALUES ('$id_asig','$ai','$fecha')";
+    foreach ($alum_id as $ai) {
+        $query = "INSERT INTO falta_asistencia(asignatura_id,alum_id,fecha,descripcion) 
+        VALUES ('$id_asig','$ai','$fecha','$descripcion')";
 
         $res = mysqli_query($conexion, $query);
-    } 
-    
+    }
+
     if ($res) {
         header('Location: P2.Registrar asistencia.php');
     }
@@ -72,14 +69,14 @@ if ($_SERVER["REQUEST_METHOD"] === 'POST') {
                     <div class="main-box-body clearfix">
                         <div class="container ml-4">
                             <div>
-                                <h1>Notas del Curso: <?php echo $_SESSION['datos_usuario']['especialidad'] ?></h1>
+                                <h1>Faltas del curso: <?php echo $_SESSION['datos_usuario']['especialidad'] ?></h1>
                                 <!-- <h2>Curso:</h2> -->
                                 <h3><img src="https://img.icons8.com/color/48/000000/check-all--v1.png" /><?php echo $_SESSION['datos_usuario']['especialidad'] ?></h3>
                             </div>
                         </div>
                         <div class="container ml-4 mt-4">
                             <form method="POST" action="../../SACNS/codigo/P2.Registrar asistencia.php">
-                                <div class="mt-3 mb-4">
+                                <div class=" mt-3 mb-4">
                                     <div class="form-control p-5">
                                         <p class="label-color mb-2">Alumno: *</p>
                                         <select name="alum_id[]" multiple="multiple" style="width: 100%;" class="alumno" required>
@@ -87,8 +84,14 @@ if ($_SERVER["REQUEST_METHOD"] === 'POST') {
                                                 <option value=" <?php echo $alum_id['alum_id']; ?> "> <?php echo $alum_id['nombres'] . " " . $alum_id['apellidos']; ?> </option>
                                             <?php endwhile; ?>
                                         </select>
-                                        <p class="label-color mb-2 mt-4">Fecha*</p>
+                                        <p class="label-color mb-2 mt-4">Fecha: *</p>
                                         <input name="fecha" type="date" class="form-control" placeholder="dd/mm/aaaa" pattern="[0-31]{1}/[0-12]{1}/[2021-3000]{1}" required />
+                                        <p class="label-color mb-2 mt-4">Motivo: *</p>
+                                        <select name="descripcion" id="descripcion" style="width: 100%;">
+                                            <option value="">--Seleccione--</option>
+                                            <option value="Inasistencia">Inasistencia</option>
+                                            <option value="Tardanza">Tardanza</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <center>

@@ -91,7 +91,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <a href="">
+                            <a href="busquedaEliminarUsuario.php">
                                 <div href="#" id="btnEliminarUsuario" class="d-block shadow box-pre-login pointer bg-2nd text-decoration-none text-black rounded border-sacns-ge p-2 d-flex align-items-center mt-4 col-lg-10">
                                     <div class="bg-1st p-3 pb-2 ms-2 me-4 polygon">
                                         <i class="fas fa-suitcase fs-5 text-white"></i>

@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (urlParams.get('mensaje') == '1') {
-        showError('El usuario fue creado exitosamente');
+        showGod('El usuario fue creado exitosamente');
     }
 
     btnRegistrar.addEventListener('click', validateForm);
@@ -27,6 +27,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 const showError = (error) => {
+    swal.fire({
+        text: error,
+        icon: 'error',
+        confirmButtonText: 'Aceptar',
+        confirmButtonColor: '#48BB78'
+    })
+}
+
+const showGod = (error) => {
     swal.fire({
         text: error,
         icon: 'success',

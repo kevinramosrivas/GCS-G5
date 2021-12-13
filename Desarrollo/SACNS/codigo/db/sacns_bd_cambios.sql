@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-12-2021 a las 21:46:28
+-- Tiempo de generación: 13-12-2021 a las 18:31:53
 -- Versión del servidor: 10.4.22-MariaDB
 -- Versión de PHP: 8.0.13
 
@@ -65,9 +65,19 @@ CREATE TABLE `alumno` (
 CREATE TABLE `asignatura` (
   `asignatura_id` int(11) NOT NULL,
   `nivel_id` int(11) NOT NULL,
-  `docente_id` int(11) NOT NULL,
   `nombre` varchar(50) COLLATE utf16_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `asignatura`
+--
+
+INSERT INTO `asignatura` (`asignatura_id`, `nivel_id`, `nombre`) VALUES
+(1, 1, 'Matematica'),
+(2, 1, 'Comunicacion'),
+(3, 1, 'Ingles'),
+(4, 1, 'Ciencia,Tecnologia y Ambiente'),
+(5, 1, 'Educacion Fisica');
 
 -- --------------------------------------------------------
 
@@ -144,7 +154,8 @@ CREATE TABLE `observación` (
   `id_alum` int(11) NOT NULL,
   `id_asig` int(11) NOT NULL,
   `descripción` varchar(255) COLLATE utf16_spanish_ci NOT NULL,
-  `fecha_observacion` date NOT NULL
+  `fecha_observacion` date NOT NULL,
+  `estado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_spanish_ci;
 
 -- --------------------------------------------------------
@@ -188,8 +199,7 @@ ALTER TABLE `alumno`
 --
 ALTER TABLE `asignatura`
   ADD PRIMARY KEY (`asignatura_id`),
-  ADD KEY `FK_NIVEL` (`nivel_id`),
-  ADD KEY `FK_DOCENTE` (`docente_id`);
+  ADD KEY `FK_NIVEL` (`nivel_id`);
 
 --
 -- Indices de la tabla `docente`
@@ -274,8 +284,13 @@ ALTER TABLE `alumno`
 -- Filtros para la tabla `asignatura`
 --
 ALTER TABLE `asignatura`
-  ADD CONSTRAINT `asignatura_ibfk_1` FOREIGN KEY (`nivel_id`) REFERENCES `nivel` (`nivel_id`),
-  ADD CONSTRAINT `asignatura_ibfk_2` FOREIGN KEY (`docente_id`) REFERENCES `docente` (`docente_id`);
+  ADD CONSTRAINT `asignatura_ibfk_1` FOREIGN KEY (`nivel_id`) REFERENCES `nivel` (`nivel_id`);
+
+--
+-- Filtros para la tabla `docente`
+--
+ALTER TABLE `docente`
+  ADD CONSTRAINT `docente_ibfk_1` FOREIGN KEY (`asignatura_id`) REFERENCES `asignatura` (`asignatura_id`);
 
 --
 -- Filtros para la tabla `falta_asistencia`

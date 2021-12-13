@@ -19,11 +19,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (urlParams.get('error') == '2') {
-        showError('Ya existe un padre registrado con este DNI');
+        showError('Ya existe en el sistema un usuario con este DNI');
     }
 
     if (urlParams.get('mensaje') == '1') {
-        showError('El usuario fue creado exitosamente');
+        showGod('El usuario fue creado exitosamente');
     }
 
     btnRegistrar.addEventListener('click', validateForm);
@@ -32,6 +32,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 const showError = (error) => {
+    swal.fire({
+        text: error,
+        icon: 'error',
+        confirmButtonText: 'Aceptar',
+        confirmButtonColor: '#48BB78'
+    })
+}
+
+const showGod = (error) => {
     swal.fire({
         text: error,
         icon: 'success',
@@ -75,5 +84,17 @@ const validateForm = (e) => {
         return;
     }
 
+    if(dniPadreValue === dniAlumnoValue){
+        swal.fire({
+            title: 'Error',
+            text: 'Los numero de DNI del padre y el alumno deben ser distintos',
+            icon: 'error',
+            confirmButtonText: 'Aceptar',
+            confirmButtonColor: '#48BB78'
+        })
+        return;
+    }
+
     form.submit();
+    form.reset();
 }

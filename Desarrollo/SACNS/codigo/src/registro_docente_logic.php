@@ -36,9 +36,16 @@
     $sql = "SELECT * FROM `docente` WHERE docente_id = '$docente_id'";
     $result = mysqli_query($conexion, $sql);
     $count2 = mysqli_num_rows($result);
-    var_dump($count);
-    var_dump($count2);
-    if($count !== 1 && $count2 !==1 ){
+
+    $sql = "SELECT * FROM `alumno` WHERE alum_id = '$docente_id'";
+    $result = mysqli_query($conexion, $sql);
+    $count3 = mysqli_num_rows($result);
+
+    $sql = "SELECT * FROM `padre` WHERE padre_id = '$docente_id'";
+    $result = mysqli_query($conexion, $sql);
+    $count4 = mysqli_num_rows($result);
+
+    if($count !== 1 && $count2 !==1 && $count3!==1 || $count4!==1){
         $sql = "INSERT INTO `docente` (`docente_id`, `usuario`, `contrasenia`, `nombres`, 
         `apellidos`, `asignatura_id`, `email`, `celular`, `especialidad`) 
         VALUES ('$docente_id','$usuario','$docente_id','$nombres','$apellidos','$asignatura_id','$email','$celular', '$especialidad');";
@@ -55,9 +62,10 @@
         if($count == 1){
             header("location: ../registro_docente.php?error=1");
         }
-        if($count2 == 1){
+        if($count2 == 1 || $count3 == 1 || $count4){
             header("location: ../registro_docente.php?error=2");
         }
+
         
     }
 

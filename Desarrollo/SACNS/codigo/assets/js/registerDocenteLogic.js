@@ -14,11 +14,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (urlParams.get('error') == '2') {
-        showError('Ya existe en el sistema un profesor con este DNI');
+        showError('Ya existe en el sistema un usuario con este DNI');
     }
 
     if (urlParams.get('mensaje') == '1') {
-        showError('El usuario fue creado exitosamente');
+        showGod('El usuario fue creado exitosamente');
     }
 
     btnRegistrar.addEventListener('click', validateForm);
@@ -27,6 +27,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 const showError = (error) => {
+    swal.fire({
+        text: error,
+        icon: 'error',
+        confirmButtonText: 'Aceptar',
+        confirmButtonColor: '#48BB78'
+    })
+}
+
+const showGod = (error) => {
     swal.fire({
         text: error,
         icon: 'success',
@@ -68,4 +77,5 @@ const validateForm = (e) => {
     }
 
     form.submit();
+    form.reset();
 }

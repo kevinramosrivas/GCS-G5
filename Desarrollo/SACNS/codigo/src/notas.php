@@ -1,10 +1,14 @@
 <?php
     include("conexion_db.php");
+    $id = $_POST['id'];
     
-  
+    
+    if(!isset($_GET['id'])) {
+        header('Location: index.php');
+    }
     
     /*para mostrar el nombre del curso*/
-    $consulta = "SELECT * FROM docente WHERE docente_id = 15021046";
+    $consulta = "SELECT * FROM docente WHERE docente_id = ".$id."";
     $resultado_curso = mysqli_query($conexion, $consulta);
     $curso = mysqli_fetch_assoc($resultado_curso);
     $id_curso = $curso['asignatura_id'];

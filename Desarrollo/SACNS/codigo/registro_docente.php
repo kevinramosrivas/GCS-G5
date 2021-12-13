@@ -1,3 +1,10 @@
+<?php
+    session_start();
+
+    if(!isset($_SESSION['datos_usuario']) || !$_SESSION['role']=='admin') {
+        header("Location: login.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -21,7 +28,7 @@
                             <img src="assets/img/admin_prueba.png" alt="admin-foto" />
                             <div class="text-white ms-3">
                                 <p class="fw-bold fst-italic mb-0">Administrador</p>
-                                <p class="mb-0">nombre@ejemplo.com</p>
+                                <p class="mb-0"> <?php echo($_SESSION['datos_usuario']['nombres'].' '.$_SESSION['datos_usuario']['apellidos'])?> </p>
                             </div>
                         </div>
 
@@ -57,7 +64,7 @@
                                 <path d="M9.8627 2.225L8.37936 0.75L0.137695 9L8.3877 17.25L9.8627 15.775L3.0877 9L9.8627 2.225Z" fill="#8692A6"/>
                             </svg>
                     
-                            <a>Cerrar Sesión</a>
+                            <a href = "registro_tipo_usuario.php" class="mb-0 ms-2 text-secondary"> Volver </a>
                         </div>
                         <div id="volver" class="d-flex align-items-center mb-5 pointer d-none">
                             <svg width="10" height="18" viewBox="0 0 10 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -76,19 +83,19 @@
                         <div>
                             <h5 class="fw-bold fs-4" id="titleLoginPage">Datos del docente</h5>
                         </div>
-                        <form role="form" action="src/registro_docente_logic.php" method="POST">
+                        <form role="form" action="src/registro_docente_logic.php" method="POST" class="formulario">
                             <div class="form-group">
                               <label for="full_name">Nombres:</label>
-                              <input type="text" class="form-control" id="full_name_id" name="nombres" placeholder="Juan carlos">
+                              <input type="text" class="form-control" id="nombres" name="nombres" placeholder="Juan carlos">
                             </div>
 
                             <div class="form-group">
                               <label for="full_name">Apellidos:</label>
-                              <input type="text" class="form-control" id="full_name_id" name="apellidos" placeholder="Torres Cano">
+                              <input type="text" class="form-control" id="apellidos" name="apellidos" placeholder="Torres Cano">
                             </div>
                             <div class="form-group">
                                 <label for="Telefono">Telefono:</label>
-                                <input type="tel" class="form-control" id="phone" placeholder="+51  123-456-789" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" required name="celular">
+                                <input type="tel" class="form-control" id="celular" placeholder="+51  123-456-789" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" required name="celular">
                             </div>
                             <div class="form-group">
                                 <label for="email">Correo:</label>
@@ -96,11 +103,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="DNI">DNI:</label>
-                                <input type="tel" class="form-control" id="DNI" placeholder="28844275" name="dni">
+                                <input type="tel" class="form-control" id="dni" placeholder="28844275" name="dni">
                             </div>
                             <div class="form-group">
                                 <label for="pwd">Especialidad :</label> 
-                                <select class="form-select" aria-label="Default select example" name="especialidad">
+                                <select class="form-select" aria-label="Default select example" name="especialidad" id="especialidad">
                                     <option selected>Seleccione</option>
                                     <option value="1">Matematica</option>
                                     <option value="2">Comunicacion</option>
@@ -110,14 +117,14 @@
                                 </select>
                             </div>
                             <div  class = " mt-5 " >
-                            <button  class = " btn btn-colors d-block w-100 " type = " submit " > Registrar </button>
+                            <button  class = " btn btn-colors d-block w-100 " type = " submit " id="btnRegistrar"> Registrar </button>
                         </div>
                         </form> 
                     </div>
                 </div>
             </div>
         </div>
-        <script src="assets/js/loginLogic.js"></script>
+        <script src="assets/js/registerDocenteLogic.js?v=<?php echo time(); ?>"></script>
         <!--Fotter-->
          <!-- Option 1: Bootstrap Bundle with Popper -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js?v=<?php echo time(); ?>" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

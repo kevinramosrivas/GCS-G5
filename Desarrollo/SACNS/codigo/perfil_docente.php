@@ -29,6 +29,7 @@ session_start();
                     <div class="texto">
                         <h2> <?php echo $_SESSION['datos_usuario']['nombres'] . ' ' . $_SESSION['datos_usuario']['apellidos'] ?> </h2>
                         <h3> <?php echo $_SESSION['datos_usuario']['email'] ?> </h3>
+                        <h3> ASIGNATURA ID: <?php echo $_SESSION['datos_usuario']['asignatura_id'] ?> </h3>
                     </div>
                     <a href="perfil_docente.php" class="btn d-flex align-items-center"><i class='bx bxs-user-pin'></i> General </a>
                     <a href="editar_perfil_docente.php" class="btn d-flex align-items-center"><i class='bx bxs-wrench'></i> Editar</a>
@@ -40,9 +41,16 @@ session_start();
                 <div class="bio-desk">
                     <div class="panel">
                         <h4 class="red">Información Personal</h4>
+<<<<<<< HEAD
                         <p>Nombre Completo: <?php echo $_SESSION['datos_usuario']['nombres'] . ' ' . $_SESSION['datos_usuario']['apellidos'] ?> </p>
                         <p>Teléfono: <?php echo $_SESSION['datos_usuario']['celular'] ?> </p>
                         <p>Correo electronico: <?php echo $_SESSION['datos_usuario']['email'] ?> </p>
+=======
+                        <p>Nombre Completo: <?php echo $_SESSION['datos_usuario']['nombres'].' '.$_SESSION['datos_usuario']['apellidos'] ?> </p>
+                        <p>Teléfono: <?php echo $_SESSION['datos_usuario']['celular'] ?> </p>
+                        <p>Correo electronico: <?php echo $_SESSION['datos_usuario']['email'] ?> </p>
+                        <p>DNI: <?php echo $_SESSION['datos_usuario']['docente_id'] ?> </p>
+>>>>>>> d3795ce61fd05059e265a34025de767be6ee8f85
                         <p>Tipo de Usuario: Docente</p>
                     </div>
                 </div>
@@ -51,7 +59,10 @@ session_start();
                         <h4 class="terques">Datos Academicos </h4>
                         <p>Usuario Academico: <?php echo $_SESSION['datos_usuario']['usuario']  ?>  </p>
                         <p>Código: <?php echo $_SESSION['datos_usuario']['docente_id'] ?> </p>
+<<<<<<< HEAD
                         <p>Correo Institucional: <?php echo $_SESSION['datos_usuario']['email'] ?> </p>
+=======
+>>>>>>> d3795ce61fd05059e265a34025de767be6ee8f85
                         <p>Especialidad: <?php echo $_SESSION['datos_usuario']['especialidad'] ?> </p>
                     </div>
                 </div>

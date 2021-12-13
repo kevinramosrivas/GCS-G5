@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-12-2021 a las 17:57:10
+-- Tiempo de generación: 13-12-2021 a las 18:31:53
 -- Versión del servidor: 10.4.22-MariaDB
 -- Versión de PHP: 8.0.13
 
@@ -154,7 +154,8 @@ CREATE TABLE `observación` (
   `id_alum` int(11) NOT NULL,
   `id_asig` int(11) NOT NULL,
   `descripción` varchar(255) COLLATE utf16_spanish_ci NOT NULL,
-  `fecha_observacion` date NOT NULL
+  `fecha_observacion` date NOT NULL,
+  `estado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_spanish_ci;
 
 -- --------------------------------------------------------

@@ -1,4 +1,4 @@
-
+<?php require_once('src/validar_sesion.php') ?>
 <div class="sidebar">
         <div class="logo-details">
             <div id="logoprin" class='bx bxs-graduation icon' color="blue"></div>

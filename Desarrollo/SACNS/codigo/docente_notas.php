@@ -33,51 +33,82 @@
                     <div class="main-box no-header clearfix">
                         <div class="main-box-body clearfix">
                             <div class="table-responsive">
-                                <h1>Curso:  <?php echo $curso['nombre'] ?></h1>
+                                <h1>Curso:  <?php echo $curso ?></h1>
                            
                                         <table class="table user-list">
                                             <thead>
-                                                <tr>
+                                            <tr>
                                                 <th ><span>Alumno</span></th>                                                
                                                 <th class="text-center th-nota" ><span>NOTA 1</span></th>
                                                 <th class="text-center th-nota" ><span>NOTA 2</span></th>
                                                 <th class="text-center th-nota" ><span>NOTA 3</span></th> 
                                                 
-                                                <th class="text-center th-nota" ><span>PROMEDIO</span></th>                      
+                                                <th class="text-center th-nota" ><span></span></th>                      
                                                 <th class="text-center" >&nbsp;</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                            <form class="form" novalidate="" method="POST" action="editandonotas.php">
+                                            
                                                 <?php  
                                                     while($alumnos = mysqli_fetch_assoc($resultado_alumnos)){
-                                                            $consulta = "SELECT * FROM nota WHERE alum_id = ".$alumnos['ID']." AND asignatura_id=".$asignatura." AND trimestre = 1 ";
+                                                            $consulta = "SELECT * FROM nota WHERE alum_id = ".$alumnos['alum_id']." AND asignatura_id=".$id_curso." AND trimestre = 1 ";
                                                             $resultado_notas_1 = mysqli_query($conexion, $consulta);
-                                                            $notas1 = mysqli_fetch_assoc($resultado_notas_1);
+                                                            
+                                                            
+                                                            $count1 = mysqli_num_rows($resultado_notas_1);
+                                                            if($count1 == 1){
+                                                                $notas_1 = mysqli_fetch_assoc($resultado_notas_1);
+                                                                $notas1= $notas_1['nota'];
+                                                            }
+                                                            else{
+                                    
+                                                                $notas1=0;
+                                                            }
 
-                                                            $consulta = "SELECT * FROM nota WHERE alum_id = ".$alumnos['ID']." AND asignatura_id=".$asignatura." AND trimestre = 2 ";
+
+
+                                                            $consulta = "SELECT * FROM nota WHERE alum_id = ".$alumnos['alum_id']." AND asignatura_id=".$id_curso." AND trimestre = 2 ";
                                                             $resultado_notas_2 = mysqli_query($conexion, $consulta);
-                                                            $notas2 = mysqli_fetch_assoc($resultado_notas_2);
+                                                           
+                                                           
+                                                            $count2 = mysqli_num_rows($resultado_notas_2);
+                                                            if($count2 == 1){
+                                                                $notas_2 = mysqli_fetch_assoc($resultado_notas_2);
+                                                                $notas2= $notas_2['nota'];
+                                                            }
+                                                            
+                                                            else{
+                                                                $notas2=0;
+                                                            }
 
-                                                            $consulta = "SELECT * FROM nota WHERE alum_id = ".$alumnos['ID']." AND asignatura_id=".$asignatura." AND trimestre = 3 ";
+                                                            $consulta = "SELECT * FROM nota WHERE alum_id = ".$alumnos['alum_id']." AND asignatura_id=".$id_curso." AND trimestre = 3 ";
                                                             $resultado_notas_3 = mysqli_query($conexion, $consulta);
-                                                            $notas3 = mysqli_fetch_assoc($resultado_notas_3);
+                                                          
+                                                            
+                                                            $count3 = mysqli_num_rows($resultado_notas_3);
+                                                            if($count3 == 1){
+                                                                $notas3 = mysqli_fetch_assoc($resultado_notas_3);
+                                                                $notas3= $notas_3['nota'];
+                                                            }
+                                                            
+                                                            else{
+                                    
+                                                                $notas3=0;
+                                                            }
                                                         ?>
                                                             <tr>
                                                                 <td>                                                     
                                                                     <span class="user-subhead text-center"> <?php echo $alumnos['apellidos'].', '.$alumnos['nombres'] ?> </span>
                                                                 </td>
-                                                                <td>
-                                                                <input class="form-control" type="text" name="name" disabled value="<?php echo $notas1['nota'] ?>">
+                                                              
+                                                                <td class="editable-col text-center" contenteditable="true" name="N1" id="N1" col-index='0' oldVal ="<?php echo $notas1 ?>"><?php echo $notas1 ?>
                                                                 </td>
                                                                 
-                                                                <td>
-                                                                <input class="form-control" type="text" name="name" disabled value="<?php echo $notas2['nota'] ?>">
+                                                                <td class="editable-col text-center" contenteditable="true" name="N1" id="N1" col-index='0' oldVal ="<?php echo $notas2?>"><?php echo $notas2 ?>
                                                                 </td>
-                                                                <td>
-                                                                <input class="form-control" type="text" name="name" disabled value="<?php echo $notas3['nota'] ?>">
+                                                                
+                                                                <td class="editable-col text-center" contenteditable="true" name="N1" id="N1" col-index='0' oldVal ="<?php echo $notas3 ?>"><?php echo $notas3 ?>
                                                                 </td>
-                                                               
                                                                 <td >
                                                                     <a href="">
                                                                 <button class="btn btn-info" style="background: #4FD1C5; color: #FFFFFF;">Grabar</button></a>

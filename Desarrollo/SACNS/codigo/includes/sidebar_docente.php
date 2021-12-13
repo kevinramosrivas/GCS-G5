@@ -17,7 +17,7 @@ php require_once('src/validar_sesion.php') ?>
                 <span class="tooltip">Principal</span>
             </li>
             <li>
-                <a href="cursos_cargo_docente.php">
+                <a href="docente_notas.php">
                     <i class='bx bx-notepad'></i>
                     <span class="links_name">Ingreso de Notas</span>
                 </a>

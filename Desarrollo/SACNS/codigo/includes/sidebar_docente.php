@@ -1,6 +1,5 @@
 
-<? /*este bloque de código funcionará luego de la implementación de validar_sesion.php, por tanto se referenció una ubicación hipotética parael mismo*/
-php require_once('src/validar_sesion.php') ?>
+<?php require_once('src/validar_sesion.php') ?>
     
     <div class="sidebar">
         <div class="logo-details">

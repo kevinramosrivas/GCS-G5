@@ -52,10 +52,6 @@
         mysqli_query($conexion, $sql);
     
         var_dump($sql);
-    
-        $sql = "INSERT INTO `asignatura` (`asignatura_id`, `nivel_id`, `docente_id`, `nombre`) VALUES ('$asignatura_id', '1' , '$docente_id', '$especialidad')";
-        var_dump($sql);
-        mysqli_query($conexion, $sql);
         header("location: ../registro_docente.php?mensaje=1");
     }
     else{

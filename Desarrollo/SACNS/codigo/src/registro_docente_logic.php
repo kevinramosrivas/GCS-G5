@@ -46,7 +46,7 @@
     $result = mysqli_query($conexion, $sql);
     $count4 = mysqli_num_rows($result);
 
-    if($count < 1 && $count2 !==1 && $count3!==1 && $count4!==1){
+    if($count < 1 && $count2 < 1 && $count3 < 1 && $count4 < 1){
         $sql = "INSERT INTO `docente` (`docente_id`, `usuario`, `contrasenia`, `nombres`, 
         `apellidos`, `asignatura_id`, `email`, `celular`, `especialidad`) 
         VALUES ('$docente_id','$usuario','$docente_id','$nombres','$apellidos','$asignatura_id','$email','$celular', '$especialidad');";
@@ -59,8 +59,8 @@
         if($count == 1){
             header("location: ../registro_docente.php?error=1");
         }
-        if($count2 == 1 || $count3 == 1 || $count4){
-            //header("location: ../registro_docente.php?error=2");
+        if($count2 == 1 || $count3 == 1 || $count4 == 1 ){
+            header("location: ../registro_docente.php?error=2");
         }
 
         

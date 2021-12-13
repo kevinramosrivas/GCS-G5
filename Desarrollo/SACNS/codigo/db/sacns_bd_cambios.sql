@@ -107,7 +107,6 @@ CREATE TABLE `falta_asistencia` (
   `id` int(11) NOT NULL,
   `asignatura_id` int(11) NOT NULL,
   `alum_id` int(11) NOT NULL,
-  `descripción` varchar(10) COLLATE utf16_spanish_ci NOT NULL,
   `fecha` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_spanish_ci;
 

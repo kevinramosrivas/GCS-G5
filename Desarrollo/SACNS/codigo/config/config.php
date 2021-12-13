@@ -2,5 +2,5 @@
     $servidor = 'localhost';
     $usuario = 'root';
     $password = '';
-    $basedatos = 'sacns_bd';
+    $basedatos = 'sacns_bd_cambios';
 ?>

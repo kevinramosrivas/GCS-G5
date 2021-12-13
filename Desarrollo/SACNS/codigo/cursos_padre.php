@@ -40,6 +40,7 @@
 
 <body>
     <?php require_once('includes/sidebar_padre.php') ?>
+    
     <div class="container mt-5 ml-5 p-5">
         <div class="container-fluid p-0">
             <h1 class="h3">Mis Cursos</h1>
@@ -56,11 +57,11 @@
                             <table class="table table-striped" style="width:100%" style="height:100;">
                                 <thead>
                                     <tr>
-                                        <th>#</th>
-                                        <th style="width: 20%;">Curso</th>
-                                        <th style="width: 40%;">Docente</th>
-                                        <th>Estado</th>
-                                        <th style="width: 5%;"> </th>
+                                        <th class="text-center" ><span>#</span></th>                                                
+                                        <th class="text-center" ><span>Curso</span></th>
+                                        <th class="text-center" ><span>Docente</span></th>
+                                        <th class="text-center" ><span>Nota</span></th> 
+                                        <th class="text-center" ><span>... </span></th> 
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -69,16 +70,9 @@
                                                 class="rounded-circle my-n1" alt="Avatar"></td>
                                         <td>Matematica</td>
                                         <td>Apellido1 Apellido2, Nombre1 Nombre2</td>
+                                        <td>Nota</td>
                                         <td>
-                                            <div class="progress" style="height: 3px;">
-                                                <div class="progress-bar" role="progressbar" style="width: 25%;"
-                                                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>25%
-                                        </td>
-                                        <td>
-                                            <div class="btn custom-btn vertical">
-                                                ...
-                                            </div>
+                                            <a href="htt://sitioweb.com/a"><button class="btn btn-info" style="background: #4FD1C5; color: #FFFFFF;">Información</button></a>
                                         </td>
                                     </tr>
                                     <tr>
@@ -86,16 +80,9 @@
                                                 class="rounded-circle my-n1" alt="Avatar"></td>
                                         <td>Comunicación</td>
                                         <td>Apellido1 Apellido2, Nombre1 Nombre2</td>
+                                        <td>Nota</td>
                                         <td>
-                                            <div class="progress" style="height: 3px;">
-                                                <div class="progress-bar" role="progressbar" style="width: 25%;"
-                                                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>25%
-                                        </td>
-                                        <td>
-                                            <div class="btn custom-btn vertical">
-                                                ...
-                                            </div>
+                                            <a href="htt://sitioweb.com/a"><button class="btn btn-info" style="background: #4FD1C5; color: #FFFFFF;">Información</button></a>
                                         </td>
                                     </tr>
                                     <tr>
@@ -103,33 +90,19 @@
                                                 class="rounded-circle my-n1" alt="Avatar"></td>
                                         <td>Ciencia, Tecnología y Ambiente</td>
                                         <td>Apellido1 Apellido2, Nombre1 Nombre2</td>
+                                        <td>Nota</td>
                                         <td>
-                                            <div class="progress" style="height: 3px;">
-                                                <div class="progress-bar" role="progressbar" style="width: 25%;"
-                                                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>25%
-                                        </td>
-                                        <td>
-                                            <div class="btn custom-btn vertical">
-                                                ...
-                                            </div>
+                                            <a href="htt://sitioweb.com/a"><button class="btn btn-info" style="background: #4FD1C5; color: #FFFFFF;">Información</button></a>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><img src="assets/img/ingles.webp" width="32" height="32"
+                                        <td><img src="assets/img/ingless.webp" width="32" height="32"
                                                 class="rounded-circle my-n1" alt="Avatar"></td>
                                         <td>Ingles</td>
                                         <td>Apellido1 Apellido2, Nombre1 Nombre2</td>
+                                        <td>Nota</td>
                                         <td>
-                                            <div class="progress" style="height: 3px;">
-                                                <div class="progress-bar" role="progressbar" style="width: 25%;"
-                                                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>25%
-                                        </td>
-                                        <td>
-                                            <div class="btn custom-btn vertical">
-                                                ...
-                                            </div>
+                                            <a href="htt://sitioweb.com/a"><button class="btn btn-info" style="background: #4FD1C5; color: #FFFFFF;">Información</button></a>
                                         </td>
                                     </tr>
                                     <tr>
@@ -137,16 +110,9 @@
                                                 class="rounded-circle my-n1" alt="Avatar"></td>
                                         <td>Educación Fisica</td>
                                         <td>Apellido1 Apellido2, Nombre1 Nombre2</td>
+                                        <td>Nota</td>
                                         <td>
-                                            <div class="progress" style="height: 3px;">
-                                                <div class="progress-bar" role="progressbar" style="width: 25%;"
-                                                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>25%
-                                        </td>
-                                        <td>
-                                            <div class="btn custom-btn vertical">
-                                                ...
-                                            </div>
+                                            <a href="htt://sitioweb.com/a"><button class="btn btn-info" style="background: #4FD1C5; color: #FFFFFF;">Información</button></a>
                                         </td>
                                     </tr>
                                 </tbody>

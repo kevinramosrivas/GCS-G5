@@ -1,5 +1,5 @@
 <?php
-    session_start();
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -11,8 +11,7 @@
     <title>Perfil</title>
     <link rel="shortcut icon" href="assets/img/logo.png" type="image/x-icon">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/sidebar.css">
     <link href="assets/css/perfil.css" rel="stylesheet">
 </head>
@@ -28,10 +27,10 @@
                 <div class="perfil">
                     <img src="assets/img/admin_prueba.png" alt="" id="perfil">
                     <div class="texto">
-                        <h2> <?php echo $_SESSION['datos_usuario']['nombres'].' '.$_SESSION['datos_usuario']['apellidos'] ?> </h2>
+                        <h2> <?php echo $_SESSION['datos_usuario']['nombres'] . ' ' . $_SESSION['datos_usuario']['apellidos'] ?> </h2>
                         <h3> <?php echo $_SESSION['datos_usuario']['email'] ?> </h3>
                     </div>
-                    <a href="perfil_docente.php" class="btn d-flex align-items-center"><i class='bx bxs-user-pin'></i> General  </a>
+                    <a href="perfil_docente.php" class="btn d-flex align-items-center"><i class='bx bxs-user-pin'></i> General </a>
                     <a href="editar_perfil_docente.php" class="btn d-flex align-items-center"><i class='bx bxs-wrench'></i> Editar</a>
                 </div>
             </div>
@@ -41,20 +40,18 @@
                 <div class="bio-desk">
                     <div class="panel">
                         <h4 class="red">Información Personal</h4>
-                        <p>Nombre Completo: <?php echo $_SESSION['datos_usuario']['nombres'].' '.$_SESSION['datos_usuario']['apellidos'] ?> </p>
-                        <p>Edad: <?php echo $_SESSION['datos_usuario']['edad'] ?> </p>
+                        <p>Nombre Completo: <?php echo $_SESSION['datos_usuario']['nombres'] . ' ' . $_SESSION['datos_usuario']['apellidos'] ?> </p>
                         <p>Teléfono: <?php echo $_SESSION['datos_usuario']['celular'] ?> </p>
                         <p>Correo electronico: <?php echo $_SESSION['datos_usuario']['email'] ?> </p>
-                        <p>Dirección:  <?php echo $_SESSION['datos_usuario']['direccion'] ?> </p>
-                        <p>DNI: <?php echo $_SESSION['datos_usuario']['dni'] ?> </p>
                         <p>Tipo de Usuario: Docente</p>
                     </div>
                 </div>
                 <div class="bio-desk">
                     <div class="panel">
                         <h4 class="terques">Datos Academicos </h4>
+                        <p>Usuario Academico: <?php echo $_SESSION['datos_usuario']['usuario']  ?>  </p>
                         <p>Código: <?php echo $_SESSION['datos_usuario']['docente_id'] ?> </p>
-                        <p>Correo Institucional: <?php echo $_SESSION['datos_usuario']['correo_insti'] ?> </p>
+                        <p>Correo Institucional: <?php echo $_SESSION['datos_usuario']['email'] ?> </p>
                         <p>Especialidad: <?php echo $_SESSION['datos_usuario']['especialidad'] ?> </p>
                     </div>
                 </div>

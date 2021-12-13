@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-12-2021 a las 19:00:49
+-- Tiempo de generación: 12-12-2021 a las 21:46:28
 -- Versión del servidor: 10.4.22-MariaDB
 -- Versión de PHP: 8.0.13
 
@@ -97,7 +97,6 @@ CREATE TABLE `falta_asistencia` (
   `id` int(11) NOT NULL,
   `asignatura_id` int(11) NOT NULL,
   `alum_id` int(11) NOT NULL,
-  `descripción` varchar(10) COLLATE utf16_spanish_ci NOT NULL,
   `fecha` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_spanish_ci;
 
@@ -112,6 +111,13 @@ CREATE TABLE `nivel` (
   `nivel` varchar(10) COLLATE utf16_spanish_ci NOT NULL,
   `año` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `nivel`
+--
+
+INSERT INTO `nivel` (`nivel_id`, `nivel`, `año`) VALUES
+(1, 'secundaria', 1);
 
 -- --------------------------------------------------------
 
@@ -137,7 +143,8 @@ CREATE TABLE `observación` (
   `obs_id` int(11) NOT NULL,
   `id_alum` int(11) NOT NULL,
   `id_asig` int(11) NOT NULL,
-  `descripción` varchar(255) COLLATE utf16_spanish_ci NOT NULL
+  `descripción` varchar(255) COLLATE utf16_spanish_ci NOT NULL,
+  `fecha_observacion` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_spanish_ci;
 
 -- --------------------------------------------------------
@@ -242,46 +249,16 @@ ALTER TABLE `administrador`
   MODIFY `administrador_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1235;
 
 --
--- AUTO_INCREMENT de la tabla `alumno`
---
-ALTER TABLE `alumno`
-  MODIFY `alum_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `asignatura`
---
-ALTER TABLE `asignatura`
-  MODIFY `asignatura_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `docente`
---
-ALTER TABLE `docente`
-  MODIFY `docente_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT de la tabla `falta_asistencia`
 --
 ALTER TABLE `falta_asistencia`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `nivel`
---
-ALTER TABLE `nivel`
-  MODIFY `nivel_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT de la tabla `observación`
 --
 ALTER TABLE `observación`
   MODIFY `obs_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `padre`
---
-ALTER TABLE `padre`
-  MODIFY `padre_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restricciones para tablas volcadas

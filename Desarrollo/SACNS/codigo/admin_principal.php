@@ -1,5 +1,4 @@
 <?php include 'includes/header.php' ?>
-
 <main>
 
         <?php
@@ -20,7 +19,7 @@
                             <img src="assets/img/admin_prueba.png" alt="admin-foto" />
                             <div class="text-white ms-3">
                                 <p class="fw-bold fst-italic mb-0">Administrador</p>
-                                <p class="mb-0">nombre@ejemplo.com</p>
+                                <p class="mb-0"> <?php echo($_SESSION['datos_usuario']['nombres'].' '.$_SESSION['datos_usuario']['apellidos'])?> </p>
                             </div>
                         </div>
 
@@ -71,7 +70,7 @@
                     <div class="container mx-lg-5" id="containerLoginPageRight">
                         <div>
                             <h5 class="fw-bold fs-4" id="titleLoginPage">¡Bienvenido, Administrador!</h5>
-                            <p class="text-secondary" id="textLoginPage">Hola, "nombre" estas son las opciones que tiene.</p>
+                            <p class="text-secondary" id="textLoginPage">Hola, <?php echo($_SESSION['datos_usuario']['nombres'].' '.$_SESSION['datos_usuario']['apellidos'])?> seleccione el tipo de usuario que quiere crear.</p>
                         </div>
                         <div class="row mx-auto" id="containerBtnRoles">
                             <a href="registro_tipo_usuario.php">
@@ -92,22 +91,24 @@
                                     </div>
                                 </div>
                             </a>
-                            <div href="#" id="btnEliminarUsuario" class="d-block shadow box-pre-login pointer bg-2nd text-decoration-none text-black rounded border-sacns-ge p-2 d-flex align-items-center mt-4 col-lg-10">
-                                <div class="bg-1st p-3 pb-2 ms-2 me-4 polygon">
-                                    <i class="fas fa-suitcase fs-5 text-white"></i>
-                                </div>
-                                <div class="d-flex w-100 justify-content-between align-items-center">
-                                    <div>
-                                        <p class="fw-bold mb-0">ELIMINAR USUARIO</p>
-                                        <p class="text-secondary fs-6">Eliminar un usuario existente</p>
+                            <a href="busquedaEliminarUsuario.php">
+                                <div href="#" id="btnEliminarUsuario" class="d-block shadow box-pre-login pointer bg-2nd text-decoration-none text-black rounded border-sacns-ge p-2 d-flex align-items-center mt-4 col-lg-10">
+                                    <div class="bg-1st p-3 pb-2 ms-2 me-4 polygon">
+                                        <i class="fas fa-suitcase fs-5 text-white"></i>
                                     </div>
-                                    <div class="pe-3 d-none arrow">
-                                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M7.58927 0.577574C7.26383 0.252137 6.73619 0.252137 6.41075 0.577574C6.08532 0.903011 6.08532 1.43065 6.41075 1.75609L10.8215 6.16683H1.16668C0.70644 6.16683 0.333344 6.53993 0.333344 7.00016C0.333344 7.4604 0.70644 7.8335 1.16668 7.8335H10.8215L6.41075 12.2442C6.08532 12.5697 6.08532 13.0973 6.41075 13.4228C6.73619 13.7482 7.26383 13.7482 7.58927 13.4228L13.4226 7.58942C13.748 7.26398 13.748 6.73634 13.4226 6.41091L7.58927 0.577574Z" fill="#2EBD59"/>
-                                        </svg>
-                                    </div> 
+                                    <div class="d-flex w-100 justify-content-between align-items-center">
+                                        <div>
+                                            <p class="fw-bold mb-0">ELIMINAR USUARIO</p>
+                                            <p class="text-secondary fs-6">Eliminar un usuario existente</p>
+                                        </div>
+                                        <div class="pe-3 d-none arrow">
+                                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M7.58927 0.577574C7.26383 0.252137 6.73619 0.252137 6.41075 0.577574C6.08532 0.903011 6.08532 1.43065 6.41075 1.75609L10.8215 6.16683H1.16668C0.70644 6.16683 0.333344 6.53993 0.333344 7.00016C0.333344 7.4604 0.70644 7.8335 1.16668 7.8335H10.8215L6.41075 12.2442C6.08532 12.5697 6.08532 13.0973 6.41075 13.4228C6.73619 13.7482 7.26383 13.7482 7.58927 13.4228L13.4226 7.58942C13.748 7.26398 13.748 6.73634 13.4226 6.41091L7.58927 0.577574Z" fill="#2EBD59"/>
+                                            </svg>
+                                        </div> 
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <form method="POST" class="d-none formulario">
                             <div class="mb-1">

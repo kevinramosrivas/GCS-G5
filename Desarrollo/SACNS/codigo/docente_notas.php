@@ -4,7 +4,8 @@
         header("Location: login.php");
     }
 
-?>
+
+
 ?>
 
 <!DOCTYPE html>
@@ -33,6 +34,7 @@
 
     <?php include("src/notas.php") ?>
     <?php require_once('includes/sidebar_docente.php') ?>
+    
 
     <div>
     
@@ -60,9 +62,10 @@
                                             
                                                 <?php  
                                                     foreach ($conexion->query("SELECT * FROM alumno WHERE nivel_id IN (SELECT nivel_id FROM asignatura WHERE asignatura_id = ".$asignatura_id.")") as $alumnos){
-                                                    
+                                                         
                                                     
                                                             $alumnos_id=$alumnos['alum_id'];
+                                                            include("src/subir_notas.php");
 
                                                             $consulta = "SELECT * FROM nota WHERE alum_id = ".$alumnos_id." AND asignatura_id=".$asignatura_id." AND trimestre = 1 ";
                                                             $resultado_notas_1 = mysqli_query($conexion, $consulta);
@@ -108,27 +111,29 @@
                                     
                                                                 $notas3=0;
                                                             }
+                                                        
                                                         ?>
                                                             <tr>
+                                                                <form method="post" action="">
                                                                 <td>                                                     
                                                                     <span class="user-subhead text-center"> <?php echo $alumnos['apellidos'].', '.$alumnos['nombres'] ?> </span>
                                                                 </td>
                                                               
-                                                                <td class="editable-col text-center" contenteditable="true" name="N1" id="N1" col-index='0' oldVal ="<?php echo $notas1 ?>"><?php echo $notas1 ?>
+                                                                <td><input id="N1" name="N1" class="element text medium" type="text" value="<?php echo $notas1 ?>">
                                                                 </td>
-                                                                
-                                                                <td class="editable-col text-center" contenteditable="true" name="N1" id="N1" col-index='0' oldVal ="<?php echo $notas2?>"><?php echo $notas2 ?>
+                                                                <td><input id="N2" name="N2" class="element text medium" type="text" value="<?php echo $notas2 ?>">
                                                                 </td>
-                                                                
-                                                                <td class="editable-col text-center" contenteditable="true" name="N1" id="N1" col-index='0' oldVal ="<?php echo $notas3 ?>"><?php echo $notas3 ?>
+                                                                <td><input id="N3" name="N3" class="element text medium" type="text" value="<?php echo $notas3 ?>">
                                                                 </td>
                                                                 <td >
-                                                                    <a href="">
-                                                                <button class="btn btn-info" style="background: #4FD1C5; color: #FFFFFF;">Grabar</button></a>
+                                                                    <a href="src/subir_notas.php">
+                                                                <button class="btn btn-info" name="registrar" style="background: #4FD1C5; color: #FFFFFF;">Grabar</button></a>
                                                                                                                     </td>
+                                                                </form>
                                                             </tr>
 
                                                         <?php
+                                                    
                                                     }
                                                 ?>
 

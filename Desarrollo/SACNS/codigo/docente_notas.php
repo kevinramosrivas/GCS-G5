@@ -33,6 +33,7 @@
 
     <?php include("src/notas.php") ?>
     <?php require_once('includes/sidebar_docente.php') ?>
+ 
     
 
     <div>
@@ -53,7 +54,7 @@
                                                 <th class="text-center th-nota" ><span>NOTA 2</span></th>
                                                 <th class="text-center th-nota" ><span>NOTA 3</span></th> 
                                                 
-                                                <th class="text-center th-nota" ><span></span></th>                      
+                                                <th class="text-center th-nota" ><span>   </span></th>                      
                                                 <th class="text-center" >&nbsp;</th>
                                                 </tr>
                                             </thead>
@@ -102,7 +103,7 @@
                                                             
                                                             $count3 = mysqli_num_rows($resultado_notas_3);
                                                             if($count3 == 1){
-                                                                $notas3 = mysqli_fetch_assoc($resultado_notas_3);
+                                                                $notas_3 = mysqli_fetch_assoc($resultado_notas_3);
                                                                 $notas3= $notas_3['nota'];
                                                             }
                                                             
@@ -113,7 +114,7 @@
                                                         
                                                         ?>
                                                             <tr>
-                                                                <form method="POST" action="src/subir_notas.php?N1=<?php echo $_POST['nota1'];?>N2=<?php echo $_POST['nota2'];?>N3=<?php echo $_POST['nota3'];?>id=<?php echo $alumnos_id;?>asignatura_id=<?php echo $asignatura_id;?>">
+                                                                <form method="POST" action="">
                                                                     <td>                                                     
                                                                         <span class="user-subhead text-center"><?php echo $alumnos['apellidos'].', '.$alumnos['nombres'] ?> </span>
                                                                     </td>
@@ -128,15 +129,73 @@
                                                                     <td >
                                                                    
                                                                     
+                                                                    <input id="saveForm" class="btn btn-info" style="background: #4FD1C5; color: #FFFFFF;" type="submit" name="editar" value="Editar" />
                                                                 
-                                                                <button class="btn btn-info" name="editar" style="background: #4FD1C5; color: #FFFFFF;" >Grabar</button>
-                                                                      
                                                                 </form>
                                                             </tr>
 
                                                             <?php
-                                                    }
+ 
+ if(isset($_POST['editar'])) {
+    $N1=$_POST['nota1'];
+    $N2=$_POST['nota2'];
+    $N3=$_POST['nota3'];
+  
+  
+$buscar1=mysqli_query($conexion,"SELECT * FROM nota WHERE alum_id='$alumnos_id' AND asignatura_id='$asignatura_id' AND trimestre = 1");
+$buscar2=mysqli_query($conexion,"SELECT * FROM nota WHERE alum_id='$alumnos_id' AND asignatura_id='$asignatura_id' AND trimestre = 2");
+$buscar3=mysqli_query($conexion,"SELECT * FROM nota WHERE alum_id='$alumnos_id' AND asignatura_id='$asignatura_id' AND trimestre = 3");
+
+
+$c1 = mysqli_num_rows($buscar1);
+$c2 = mysqli_num_rows($buscar2);
+$c3 = mysqli_num_rows($buscar3);
+
+if($c1==1){
+    $sql ="SELECT * FROM nota WHERE alumno_id = '.$alumnos_id.' AND trimestre = 1 AND asignatura_id = '.$asignatura_id.'";
+    $consult1=mysqli_query($conexion,$sql);
+    $nota_id = mysqli_fetch_array($consult1);
+    $nota = $nota_id['nota_id'];
+    $consulta1=mysqli_query($conexion,"UPDATE nota SET nota = '.$N1.' WHERE nota_id = ".$nota." alumno_id= '.$alumnos_id.' AND trimestre = 1 AND asignatura_id = '.$asignatura_id.'");
+}
+    else{
+    $sql1 = "INSERT INTO nota (nota, alum_id, asignatura_id, trimestre) VALUES ($N1,$alumnos_id,$asignatura_id, 1)";
+    mysqli_query($conexion, $sql1);
+    var_dump($sql1);
+}
+
+
+if($c2==1){
+    $sql ="SELECT * FROM nota WHERE alumno_id = '.$alumnos_id.' AND trimestre = 2 AND asignatura_id = '.$asignatura_id.'";
+    $consult2=mysqli_query($conexion,$sql);
+    $nota_id = mysqli_fetch_array($consult2);
+    $nota = $nota_id['nota_id'];
+    $consulta2=mysqli_query($conexion,"UPDATE nota SET nota = '.$N2.' WHERE nota_id = '.$nota.' alumno_id= '.$alumnos_id.' AND trimestre = 2 AND asignatura_id = '.$asignatura_id.'");
+}else{
+    $sql1 = "INSERT INTO nota (nota, alum_id, asignatura_id, trimestre) VALUES ($N1,$alumnos_id,$asignatura_id, 2)";
+    mysqli_query($conexion, $sql1);
+    var_dump($sql1);
+}
+
+
+if($c3==1){
+    $sql ="SELECT * FROM nota WHERE alumno_id = '.$alumnos_id.' AND trimestre = 3 AND asignatura_id = '.$asignatura_id.'";
+    $consult2=mysqli_query($conexion,$sql);
+    $nota_id = mysqli_fetch_array($consult3);
+    $nota = $nota_id['nota_id'];
+    $consulta2=mysqli_query($conexion,"UPDATE nota SET nota = '.$N3.' WHERE nota_id = '.$nota.' AND alumno_id= '.$alumnos_id.' AND trimestre = 3 AND asignatura_id = '.$asignatura_id.'");
+}
+    else{
+    $sql1 = "INSERT INTO nota (nota, alum_id, asignatura_id, trimestre) VALUES ($N3,$alumnos_id,$asignatura_id, 3)";
+    mysqli_query($conexion, $sql1);
+    var_dump($sql1);
+}
+                                                    }}
+                                                    
+
+
                                                 ?>
+  
                                                 
                                                 
                                             </tbody>

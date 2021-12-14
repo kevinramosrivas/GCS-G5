@@ -10,6 +10,7 @@
     $consulta = "SELECT * FROM alumno WHERE nivel_id IN (SELECT nivel_id FROM asignatura WHERE asignatura_id = ".$asignatura_id.")";
     $resultado_alumnos = mysqli_query($conexion, $consulta);
     $alumnos = mysqli_fetch_array($resultado_alumnos);
+    
 
 
 ?>

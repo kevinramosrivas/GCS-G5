@@ -64,7 +64,7 @@ if(!isset($_SESSION['datos_usuario']) || !$_SESSION['role']=='padre') {
                                                     /*seleccionamos las asignaturas que lleva el alumno*/
                                                     for ($i = 1; $i <= 5; $i++) {
                                                        
-                                                        $consulta = "SELECT * FROM asignatura WHERE asignatura_id = '.$i.'";
+                                                        $consulta = "SELECT nombre FROM asignatura WHERE asignatura_id = '.$i.'";
                                                         $asig = mysqli_query($conexion, $consulta);
                                                         $asignatura = mysqli_fetch_array($asig);
                                                         
@@ -73,7 +73,7 @@ if(!isset($_SESSION['datos_usuario']) || !$_SESSION['role']=='padre') {
                                                                 <td>     
                                                                     <?
                                                                      
-                                                                    <span class="user-subhead text-center"> <?php echo $i; ?> </span>
+                                                                    <span class="user-subhead text-center"> <?php echo $asignatura; ?> </span>
                                                                 </td>
                                                                  
 
@@ -84,15 +84,15 @@ if(!isset($_SESSION['datos_usuario']) || !$_SESSION['role']=='padre') {
                                                                 $resultado_notas_1 = mysqli_query($conexion, $consulta);
                                                             
                                                             
-                                                            $count1 = mysqli_num_rows($resultado_notas_1);
-                                                            if($count1 == 1){
-                                                                $notas_1 = mysqli_fetch_array($resultado_notas_1);
-                                                                $notas1= $notas_1['nota'];
-                                                            }
-                                                            else{
-                                    
-                                                                $notas1=0;
-                                                            }
+                                                                $count1 = mysqli_num_rows($resultado_notas_1);
+                                                                if($count1 == 1){
+                                                                    $notas_1 = mysqli_fetch_array($resultado_notas_1);
+                                                                    $notas1= $notas_1['nota'];
+                                                                }
+                                                                else{
+                                        
+                                                                    $notas1=0;
+                                                                }
 
 
 

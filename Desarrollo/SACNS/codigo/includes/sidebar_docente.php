@@ -16,14 +16,14 @@
                 <span class="tooltip">Principal</span>
             </li>
             <li>
-                <a href="cursos_cargo_docente.php">
+                <a href="docente_notas.php">
                     <i class='bx bx-notepad'></i>
                     <span class="links_name">Ingreso de Notas</span>
                 </a>
                 <span class="tooltip">Notas</span>
             </li>
             <li>
-                <a href="/GCS-G5/Desarrollo/SACNS/codigo/P2.Registrar asistencia.php">
+                <a href="P2.Registrar asistencia.php">
                     <i class='bx bxs-x-square'></i>
                     <span class="links_name">Registro de Faltas</span>
                 </a>

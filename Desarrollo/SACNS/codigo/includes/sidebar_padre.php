@@ -14,7 +14,7 @@
                 <span class="tooltip">Principal</span>
             </li>
             <li>
-                <a href="cursos_padre.php">
+                <a href="padre_notas.php">
                     <i class='bx bx-notepad'></i>
                     <span class="links_name">Reporte de Notas</span>
                 </a>

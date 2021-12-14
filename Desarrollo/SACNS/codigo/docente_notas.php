@@ -1,3 +1,12 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['datos_usuario']) || !$_SESSION['role']=='docente') {
+        header("Location: login.php");
+    }
+
+?>
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -33,7 +42,7 @@
                     <div class="main-box no-header clearfix">
                         <div class="main-box-body clearfix">
                             <div class="table-responsive">
-                                <h1>Curso:  <?php echo $curso ?></h1>
+                                <h1>Curso:  <?php echo $asignatura; ?></h1>
                            
                                         <table class="table user-list">
                                             <thead>
@@ -50,8 +59,12 @@
                                             <tbody>
                                             
                                                 <?php  
-                                                    while($alumnos = mysqli_fetch_assoc($resultado_alumnos)){
-                                                            $consulta = "SELECT * FROM nota WHERE alum_id = ".$alumnos['alum_id']." AND asignatura_id=".$id_curso." AND trimestre = 1 ";
+                                                    foreach ($conexion->query("SELECT * FROM alumno WHERE nivel_id IN (SELECT nivel_id FROM asignatura WHERE asignatura_id = ".$asignatura_id.")") as $alumnos){
+                                                    
+                                                    
+                                                            $alumnos_id=$alumnos['alum_id'];
+
+                                                            $consulta = "SELECT * FROM nota WHERE alum_id = ".$alumnos_id." AND asignatura_id=".$asignatura_id." AND trimestre = 1 ";
                                                             $resultado_notas_1 = mysqli_query($conexion, $consulta);
                                                             
                                                             
@@ -67,7 +80,7 @@
 
 
 
-                                                            $consulta = "SELECT * FROM nota WHERE alum_id = ".$alumnos['alum_id']." AND asignatura_id=".$id_curso." AND trimestre = 2 ";
+                                                            $consulta = "SELECT * FROM nota WHERE alum_id = ".$alumnos_id." AND asignatura_id=".$asignatura_id." AND trimestre = 2 ";
                                                             $resultado_notas_2 = mysqli_query($conexion, $consulta);
                                                            
                                                            
@@ -81,7 +94,7 @@
                                                                 $notas2=0;
                                                             }
 
-                                                            $consulta = "SELECT * FROM nota WHERE alum_id = ".$alumnos['alum_id']." AND asignatura_id=".$id_curso." AND trimestre = 3 ";
+                                                            $consulta = "SELECT * FROM nota WHERE alum_id = ".$alumnos_id." AND asignatura_id=".$asignatura_id." AND trimestre = 3 ";
                                                             $resultado_notas_3 = mysqli_query($conexion, $consulta);
                                                           
                                                             

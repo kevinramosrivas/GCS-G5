@@ -1,13 +1,3 @@
-<?php 
-
-session_start();
-
-if(!isset($_SESSION['datos_usuario']) || !$_SESSION['role']=='padre') {
-    header("Location: login.php");
-}
-
-
-?>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -24,7 +14,7 @@ if(!isset($_SESSION['datos_usuario']) || !$_SESSION['role']=='padre') {
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     
         <link rel="stylesheet" href="assets/css/sidebar.css">
-    <link href="assets/css/P2.Nota_por_Mes_Docente.css" rel="stylesheet">
+    <link href="assets/css/notas_padre.css" rel="stylesheet">
     <link rel="shortcut icon" href="assets/img/logo.png" type="image/x-icon">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
@@ -50,56 +40,58 @@ if(!isset($_SESSION['datos_usuario']) || !$_SESSION['role']=='padre') {
                                         <table class="table user-list">
                                             <thead>
                                                 <tr>
-                                                <th ><span>Curso</span></th>                                                
-                                                <th class="text-center th-nota" ><span>NOTA 1</span></th>
-                                                <th class="text-center th-nota" ><span>NOTA 2</span></th>
-                                                <th class="text-center th-nota" ><span>NOTA 3</span></th> 
-                                                
-                                                                 
-                                               
+                                                    <th class="text-center th-nota"><span>Curso</span></th>                                                
+                                                    <th class="text-center th-nota" ><span>NOTA 1</span></th>
+                                                    <th class="text-center th-nota" ><span>NOTA 2</span></th>
+                                                    <th class="text-center th-nota" ><span>NOTA 3</span></th>
+                                                    <th class="text-center th-nota" ><span>PROMEDIO</span></th>
+                                                    <th></th>  
+
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <?php  
-                                                    /*seleccionamos las asignaturas que lleva el alumno*/
-                                                    for ($i = 1; $i <= 5; $i++) {
-                                                       
-                                                        $consulta = "SELECT * FROM asignatura WHERE asignatura_id = '.$i.'";
-                                                        $asig = mysqli_query($conexion, $consulta);
-                                                        $asignatura = mysqli_fetch_array($asig);
-                                                        
-                                                        ?>
+                                                            <?php  
+                                                                /*seleccionamos las asignaturas que lleva el alumno*/
+                                                                for ($i = 1; $i <= 5; $i++) {
+                                                                
+                                                                    $consulta = "SELECT * FROM asignatura WHERE asignatura_id = '$i'";
+                                                                    $asig = mysqli_query($conexion, $consulta);
+                                                                    $asignatura = mysqli_fetch_array($asig);
+                                                                    
+                                                            ?>
                                                             <tr>
-                                                                <td>     
-                                                                    <?
-                                                                     
-                                                                    <span class="user-subhead text-center"> <?php echo $i; ?> </span>
+                                                                <td> 
+                                                                    <span class="user-subhead text-center"> <?php echo ($asignatura['nombre']);?> </span>
                                                                 </td>
-                                                                 
-
-                                                                <td><span class="label label-default"><?php
-                                                                /*para mostrar las notas del primer trimestre*/
+                                                                <td><span class="label label-default 1">
+                                                                <?php
+                                                                /*para mostrar las notas del segundo trimestre*/
+                                                                $consulta = "SELECT * FROM nota WHERE alum_id = ".$alumno_id." AND asignatura_id  = '.$i.' AND trimestre = 1";
+                                                                $resultado_nota1 =mysqli_query($conexion,$consulta);
+                                                                $count1 = mysqli_num_rows($resultado_nota1);
                                                                 
-                                                                $consulta = "SELECT * FROM nota WHERE alum_id = '.$alumno_id.' AND asignatura_id ='.$i.' AND trimestre = 1";
-                                                                $resultado_notas_1 = mysqli_query($conexion, $consulta);
+                                                                if($count1 == 1){
+                                                                    $notas_1 = mysqli_fetch_array($resultado_nota1);
+                                                                    $nota1 = $notas_1['nota'];
+                                                                    if($notas_1['nota']>=11){
+                                                                        echo "<font color='green'>$nota1</font>";
+                                                                    }
+                                                                    else{
+                                                                        echo "<font color='red'>$nota1</font>";
+                                                                    }
+
+                                                                }
+                                                                else{
                                                             
-                                                            
-                                                            $count1 = mysqli_num_rows($resultado_notas_1);
-                                                            if($count1 == 1){
-                                                                $notas_1 = mysqli_fetch_array($resultado_notas_1);
-                                                                $notas1= $notas_1['nota'];
-                                                            }
-                                                            else{
-                                    
-                                                                $notas1=0;
-                                                            }
+                                                                    echo "-";
+                                                                }
+                                                                    
+     
+                                                                ?>
+                                                                </td>
 
-
-
-                                                                
-                                                                ?></td>
-
-                                                                <td><span class="label label-default"><?php
+                                                                <td><span class="label label-default 2">
+                                                                <?php
                                                                 /*para mostrar las notas del segundo trimestre*/
                                                                 $consulta = "SELECT * FROM nota WHERE alum_id = ".$alumno_id." AND asignatura_id  = '.$i.' AND trimestre = 2";
                                                                 $resultado_nota2 =mysqli_query($conexion,$consulta);
@@ -107,40 +99,73 @@ if(!isset($_SESSION['datos_usuario']) || !$_SESSION['role']=='padre') {
                                                                 
                                                                 if($count2 == 1){
                                                                     $notas_2 = mysqli_fetch_array($resultado_nota2);
-                                                                    echo $notas_2['nota'];
+                                                                    $nota2 = $notas_2['nota'];
+                                                                    if($notas_2['nota']>=11){
+                                                                        echo "<font color='green'>$nota2</font>";
+                                                                    }
+                                                                    else{
+                                                                        echo "<font color='red'>$nota2</font>";
+                                                                    }
+
 
                                                                 }
                                                                 else{
                                                             
-                                                                    echo 0;
+                                                                    echo "-";
                                                                 }
                                                                     
      
-                                                                ?></td>
-
-                                                                <td><span class="label label-default"><?php
+                                                                ?>
+                                                                </td>
+                                                                <td><span class="label label-default 3">
+                                                                <?php
                                                                 /*para mostrar las notas del tercer trimestre*/
-                                                                $consulta = "SELECT * FROM nota WHERE alum_id = '.$alumno_id.' AND asignatura_id = '.$i.' AND trimestre = 3";
-                                                                $resultado_nota3 =mysqli_query($conexion,$consulta);
+                                                                $consulta = "SELECT * FROM nota WHERE alum_id = ".$alumno_id." AND asignatura_id  = '.$i.' AND trimestre = 3";
+                                                                $resultado_nota3 = mysqli_query($conexion,$consulta);
                                                                 $count3 = mysqli_num_rows($resultado_nota3);
+                                                                
                                                                 if($count3 == 1){
                                                                     $notas_3 = mysqli_fetch_array($resultado_nota3);
-                                                                    echo $notas_3['nota'];
-                            
+                                                                    $nota3 = $notas_3['nota'];
+                                                                    if($notas_3['nota']>=11){
+                                                                        echo "<font color='green'>$nota3</font>";
+                                                                    }
+                                                                    else{
+                                                                        echo "<font color='red'>$nota3</font>";
+                                                                    }
 
 
                                                                 }
                                                                 else{
                                                             
-                                                                    echo 0;
-                                                                    $promedio = 0;
+                                                                    echo "-";
                                                                 }
-          
+                                                                    
+     
                                                                 ?>
-                                                              
-                                                                <td >
-                                                                <span class="label label-default"><?php echo $promedio ?></span>
-                                                                                                                   </td>
+                                                                </span>
+                                                                </td>
+                                                                <td><span class="label label-default 3">
+                                                                    <?php 
+                                                                    $promedio = ($notas_1['nota']+$notas_2['nota']+$notas_3['nota'])/3;
+                                                                    $promedio = round($promedio, 2);
+                                                                    if($promedio >=11){
+                                                                        echo "<font color='green'>$promedio</font>";
+                                                                    }
+                                                                    else{
+                                                                        echo "<font color='red'>$promedio</font>";
+                                                                    }
+
+                                                                    ?>
+                                                                </span>
+                                                                </td>
+                                                                <td>
+                                                                    <form action="tablas_notas_padre_por_curso.php" method="post">
+                                                                        <input value="<?php echo($i)?>"  id="ocultar" name="id_asignatura">
+                                                                        <input value="<?php echo($alumno_id)?>"  id="ocultar" name="alumno_id">
+                                                                        <button type='submit' class="btn btn-info">Detalle</button>
+                                                                    </form>
+                                                                </td>
                                                             </tr>
 
                                                         <?php

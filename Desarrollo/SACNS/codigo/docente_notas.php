@@ -3,8 +3,7 @@
     if(!isset($_SESSION['datos_usuario']) || !$_SESSION['role']=='docente') {
         header("Location: login.php");
     }
-
-
+   
 
 ?>
 
@@ -65,7 +64,7 @@
                                                          
                                                     
                                                             $alumnos_id=$alumnos['alum_id'];
-                                                            include("src/subir_notas.php");
+                                                            
 
                                                             $consulta = "SELECT * FROM nota WHERE alum_id = ".$alumnos_id." AND asignatura_id=".$asignatura_id." AND trimestre = 1 ";
                                                             $resultado_notas_1 = mysqli_query($conexion, $consulta);
@@ -114,29 +113,31 @@
                                                         
                                                         ?>
                                                             <tr>
-                                                                <form method="post" action="">
-                                                                <td>                                                     
-                                                                    <span class="user-subhead text-center"> <?php echo $alumnos['apellidos'].', '.$alumnos['nombres'] ?> </span>
-                                                                </td>
-                                                              
-                                                                <td><input id="N1" name="N1" class="element text medium" type="text" value="<?php echo $notas1 ?>">
-                                                                </td>
-                                                                <td><input id="N2" name="N2" class="element text medium" type="text" value="<?php echo $notas2 ?>">
-                                                                </td>
-                                                                <td><input id="N3" name="N3" class="element text medium" type="text" value="<?php echo $notas3 ?>">
-                                                                </td>
-                                                                <td >
-                                                                    <a href="src/subir_notas.php">
-                                                                <button class="btn btn-info" name="registrar" style="background: #4FD1C5; color: #FFFFFF;">Grabar</button></a>
-                                                                                                                    </td>
+                                                                <form method="POST" action="src/subir_notas.php?N1=<?php echo $_POST['nota1'];?>N2=<?php echo $_POST['nota2'];?>N3=<?php echo $_POST['nota3'];?>id=<?php echo $alumnos_id;?>asignatura_id=<?php echo $asignatura_id;?>">
+                                                                    <td>                                                     
+                                                                        <span class="user-subhead text-center"><?php echo $alumnos['apellidos'].', '.$alumnos['nombres'] ?> </span>
+                                                                    </td>
+                                                                
+                                                                    <td><input name="nota1" class="element text medium" type="text" value="<?php echo $notas1 ?>">
+                                                                    </td>
+                                                                    
+                                                                    <td><input name="nota2" class="element text medium" type="text" value="<?php echo $notas2 ?>">
+                                                                    </td>
+                                                                    <td><input  name="nota3" class="element text medium" type="text" value="<?php echo $notas3 ?>">
+                                                                    </td>
+                                                                    <td >
+                                                                   
+                                                                    
+                                                                
+                                                                <button class="btn btn-info" name="editar" style="background: #4FD1C5; color: #FFFFFF;" >Grabar</button>
+                                                                      
                                                                 </form>
                                                             </tr>
 
-                                                        <?php
-                                                    
+                                                            <?php
                                                     }
                                                 ?>
-
+                                                
                                                 
                                             </tbody>
                                         </table>

@@ -25,10 +25,12 @@
 
     
     <?php require_once('includes/sidebar_padre.php') ?>
-    <?php include("src/vernotaspadre.php") ?>
+    <?php include("src/vernotaspadre.php");
+        include("src/conexion_db.php");
+    ?>
     
     <div>
-    
+        
         <div class="container bootstrap snippets bootdey" style="padding-top: 100px; padding-bottom: 100px;" >
             <div class="row" style="background: #FFFFFF; border-radius:20px;" > 
                 <div class="col-lg-12">
@@ -66,7 +68,7 @@
                                                                 <td><span class="label label-default 1">
                                                                 <?php
                                                                 /*para mostrar las notas del segundo trimestre*/
-                                                                $consulta = "SELECT * FROM nota WHERE alum_id = ".$alumno_id." AND asignatura_id  = '.$i.' AND trimestre = 1";
+                                                                $consulta = "SELECT * FROM nota WHERE alum_id = ".$alumno_id." AND asignatura_id  = '$i' AND trimestre = 1";
                                                                 $resultado_nota1 =mysqli_query($conexion,$consulta);
                                                                 $count1 = mysqli_num_rows($resultado_nota1);
                                                                 
@@ -93,7 +95,7 @@
                                                                 <td><span class="label label-default 2">
                                                                 <?php
                                                                 /*para mostrar las notas del segundo trimestre*/
-                                                                $consulta = "SELECT * FROM nota WHERE alum_id = ".$alumno_id." AND asignatura_id  = '.$i.' AND trimestre = 2";
+                                                                $consulta = "SELECT * FROM nota WHERE alum_id = ".$alumno_id." AND asignatura_id  = '$i' AND trimestre = 2";
                                                                 $resultado_nota2 =mysqli_query($conexion,$consulta);
                                                                 $count2 = mysqli_num_rows($resultado_nota2);
                                                                 
@@ -120,12 +122,15 @@
                                                                 <td><span class="label label-default 3">
                                                                 <?php
                                                                 /*para mostrar las notas del tercer trimestre*/
-                                                                $consulta = "SELECT * FROM nota WHERE alum_id = ".$alumno_id." AND asignatura_id  = '.$i.' AND trimestre = 3";
+                                                                $consulta = "SELECT * FROM nota WHERE alum_id = ".$alumno_id." AND asignatura_id  = '$i' AND trimestre = 3";
                                                                 $resultado_nota3 = mysqli_query($conexion,$consulta);
                                                                 $count3 = mysqli_num_rows($resultado_nota3);
-                                                                
+                                                                $notas_3 = mysqli_fetch_array($resultado_nota3);
+                                                                //var_dump($consulta);
+                                                        
                                                                 if($count3 == 1){
-                                                                    $notas_3 = mysqli_fetch_array($resultado_nota3);
+                                                                    
+                                                                    
                                                                     $nota3 = $notas_3['nota'];
                                                                     if($notas_3['nota']>=11){
                                                                         echo "<font color='green'>$nota3</font>";

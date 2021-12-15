@@ -1,12 +1,4 @@
-<?php
-    session_start();
-    if(!isset($_SESSION['datos_usuario']) || !$_SESSION['role']=='docente') {
-        header("Location: login.php");
-    }
 
-
-
-?>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -23,7 +15,7 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     
         <link rel="stylesheet" href="assets/css/sidebar.css">
-    <link href="assets/css/P2.Nota_por_Mes_Docente.css" rel="stylesheet">
+    <link href="assets/css/notas_padre.css" rel="stylesheet">
     <link rel="shortcut icon" href="assets/img/logo.png" type="image/x-icon">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
@@ -31,9 +23,17 @@
 
 
 <body>
-
-    <?php include("src/notas.php") ?>
     <?php require_once('includes/sidebar_docente.php') ?>
+    <?php
+        if(!isset($_SESSION['datos_usuario']) || !$_SESSION['role']=='docente') {
+            header("Location: login.php");
+        }
+
+
+
+    ?>
+    <?php include("src/notas.php") ?>
+   
     
 
     <div>
@@ -65,7 +65,7 @@
                                                          
                                                     
                                                             $alumnos_id=$alumnos['alum_id'];
-                                                            include("src/subir_notas.php");
+                                                            //include("src/subir_notas.php");
 
                                                             $consulta = "SELECT * FROM nota WHERE alum_id = ".$alumnos_id." AND asignatura_id=".$asignatura_id." AND trimestre = 1 ";
                                                             $resultado_notas_1 = mysqli_query($conexion, $consulta);
@@ -99,11 +99,10 @@
 
                                                             $consulta = "SELECT * FROM nota WHERE alum_id = ".$alumnos_id." AND asignatura_id=".$asignatura_id." AND trimestre = 3 ";
                                                             $resultado_notas_3 = mysqli_query($conexion, $consulta);
-                                                          
                                                             
                                                             $count3 = mysqli_num_rows($resultado_notas_3);
                                                             if($count3 == 1){
-                                                                $notas3 = mysqli_fetch_assoc($resultado_notas_3);
+                                                                $notas_3 = mysqli_fetch_assoc($resultado_notas_3);
                                                                 $notas3= $notas_3['nota'];
                                                             }
                                                             
@@ -114,21 +113,25 @@
                                                         
                                                         ?>
                                                             <tr>
-                                                                <form method="post" action="">
+                                                                <form method="post" action="src/subir_notas.php">
                                                                 <td>                                                     
                                                                     <span class="user-subhead text-center"> <?php echo $alumnos['apellidos'].', '.$alumnos['nombres'] ?> </span>
                                                                 </td>
-                                                              
-                                                                <td><input id="N1" name="N1" class="element text medium" type="text" value="<?php echo $notas1 ?>">
+
+                                                                <td>
+                                                                    <input id="N1" name="N1" class="element text medium" type="text" value="<?php echo $notas1 ?>">
                                                                 </td>
-                                                                <td><input id="N2" name="N2" class="element text medium" type="text" value="<?php echo $notas2 ?>">
+                                                                <td>
+                                                                    <input id="N2" name="N2" class="element text medium" type="text" value="<?php echo $notas2 ?>">
                                                                 </td>
-                                                                <td><input id="N3" name="N3" class="element text medium" type="text" value="<?php echo $notas3 ?>">
+                                                                <td>
+                                                                    <input id="N3" name="N3" class="element text medium" type="text" value="<?php echo $notas3 ?>">
+                                                                    <input value= "<?php echo $asignatura_id;?>" id="ocultar" name="asignatura_id">
+                                                                    <input value = "<?php echo $alumnos_id ;?>" id="ocultar" name="alumnos_id">
                                                                 </td>
-                                                                <td >
-                                                                    <a href="src/subir_notas.php">
-                                                                <button class="btn btn-info" name="registrar" style="background: #4FD1C5; color: #FFFFFF;">Grabar</button></a>
-                                                                                                                    </td>
+                                                                <td>
+                                                                    <button class="btn btn-info" name="registrar" style="background: #4FD1C5; color: #FFFFFF;">Grabar</button></a>
+                                                                </td>
                                                                 </form>
                                                             </tr>
 

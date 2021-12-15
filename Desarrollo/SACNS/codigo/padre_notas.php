@@ -84,7 +84,7 @@
 
                                                                 }
                                                                 else{
-                                                            
+                                                                    $nota1 ='-';
                                                                     echo "-";
                                                                 }
                                                                     
@@ -106,13 +106,14 @@
                                                                         echo "<font color='green'>$nota2</font>";
                                                                     }
                                                                     else{
+                                                                        
                                                                         echo "<font color='red'>$nota2</font>";
                                                                     }
 
 
                                                                 }
                                                                 else{
-                                                            
+                                                                    $nota2 ='-';
                                                                     echo "-";
                                                                 }
                                                                     
@@ -142,7 +143,7 @@
 
                                                                 }
                                                                 else{
-                                                            
+                                                                    $nota3 ='-';
                                                                     echo "-";
                                                                 }
                                                                     
@@ -152,13 +153,18 @@
                                                                 </td>
                                                                 <td><span class="label label-default 3">
                                                                     <?php 
+                                                                    if($nota1!='-' && $nota2!='-' && $nota3 != '-' ){
                                                                     $promedio = ($notas_1['nota']+$notas_2['nota']+$notas_3['nota'])/3;
                                                                     $promedio = round($promedio, 2);
                                                                     if($promedio >=11){
                                                                         echo "<font color='green'>$promedio</font>";
                                                                     }
-                                                                    else{
+                                                                    else if(($promedio <11)){
                                                                         echo "<font color='red'>$promedio</font>";
+                                                                    }
+                                                                }
+                                                                    else{
+                                                                        echo "<font color='blue'>en curso</font>";
                                                                     }
 
                                                                     ?>

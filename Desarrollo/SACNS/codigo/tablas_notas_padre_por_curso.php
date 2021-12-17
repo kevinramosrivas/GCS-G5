@@ -114,7 +114,7 @@
                                                 <tr>
                                                     <th ><span>PROMEDIO FINAL</span></th>                                             
                                                     <th class="text-center" ><span><?php echo($promedio); ?></span></th>                      
-                                                    <th class="text-center"><a href="htt://sitioweb.com/a"><button class="btn btn-info" style="background: <?php if($nota1>=11){echo("green");} else{echo("red");}?>; color: #FFFFFF; border: #666;"><?php  if($nota1>=11){echo("Aprobado");} else{echo("Desaprobado");}  ?></button>
+                                                    <th class="text-center"><a href="htt://sitioweb.com/a"><button class="btn btn-info" style="background: <?php if($promedio>=11){echo("green");} else{echo("red");}?>; color: #FFFFFF; border: #666;"><?php  if($promedio>=11){echo("Aprobado");} else{echo("Desaprobado");}  ?></button>
                                                 </tr>
                                             </tfoot>
                                         </table>

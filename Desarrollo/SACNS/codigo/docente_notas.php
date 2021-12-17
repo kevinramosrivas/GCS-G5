@@ -119,18 +119,18 @@
                                                                 </td>
 
                                                                 <td>
-                                                                    <input id="N1" name="N1" class="element text medium" type="text" value="<?php echo $notas1 ?>">
+                                                                    <input id="N1" name="N1" class="element text medium" type="number" min="0" max="20" value="<?php echo $notas1 ?>">
                                                                 </td>
                                                                 <td>
-                                                                    <input id="N2" name="N2" class="element text medium" type="text" value="<?php echo $notas2 ?>">
+                                                                    <input id="N2" name="N2" class="element text medium" type="number" min="0" max="20" value="<?php echo $notas2 ?>">
                                                                 </td>
                                                                 <td>
-                                                                    <input id="N3" name="N3" class="element text medium" type="text" value="<?php echo $notas3 ?>">
+                                                                    <input id="N3" name="N3" class="element text medium" type="number" min="0" max="20" value="<?php echo $notas3 ?>">
                                                                     <input value= "<?php echo $asignatura_id;?>" id="ocultar" name="asignatura_id">
                                                                     <input value = "<?php echo $alumnos_id ;?>" id="ocultar" name="alumnos_id">
                                                                 </td>
                                                                 <td>
-                                                                    <button class="btn btn-info" name="registrar" style="background: #4FD1C5; color: #FFFFFF;">Grabar</button></a>
+                                                                    <button class="btn btn-info" name="registrar" id="btnRegistrar" style="background: #4FD1C5; color: #FFFFFF;">Grabar</button></a>
                                                                 </td>
                                                                 </form>
                                                             </tr>
@@ -139,8 +139,7 @@
                                                     
                                                     }
                                                 ?>
-
-                                                
+   
                                             </tbody>
                                         </table>
                             </div>
@@ -150,6 +149,8 @@
             </div>
         </div>
         <script src="assets/js/sidebar.js"></script>
+        <script src="assets/js/logicDocenteNotas.js?v=<?php echo time(); ?>"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11?v=<?php echo time(); ?>"></script>
 </body>
 
    

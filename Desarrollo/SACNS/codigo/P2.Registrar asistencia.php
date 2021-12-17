@@ -22,14 +22,24 @@ if ($_SERVER["REQUEST_METHOD"] === 'POST') {
     $id_asig = $_SESSION['datos_usuario']['asignatura_id'];
 
     foreach ($alum_id as $ai) {
-        $query = "INSERT INTO falta_asistencia(asignatura_id,alum_id,fecha,descripcion) 
-        VALUES ('$id_asig','$ai','$fecha','$descripcion')";
-
-        $res = mysqli_query($conexion, $query);
-    }
-
-    if ($res) {
-        header('Location: P2.Registrar asistencia.php');
+        $sql = "SELECT * FROM falta_asistencia WHERE alum_id = '$ai' AND fecha = '$fecha'";
+        $resultado = mysqli_query($conexion, $sql);
+        $alumFalta = mysqli_num_rows($resultado);
+        if($alumFalta <1){
+            $query = "INSERT INTO falta_asistencia(asignatura_id,alum_id,fecha,descripcion) 
+            VALUES ('$id_asig','$ai','$fecha','$descripcion')";
+    
+            $res = mysqli_query($conexion, $query);
+            header('Location: P2.Registrar asistencia.php');
+        }
+        else{
+            $sql = "SELECT apellidos , nombres FROM alumno WHERE alum_id = '$ai' ";
+            $resultado = mysqli_query($conexion, $sql);
+            $alumno = mysqli_fetch_array($resultado);
+            $alumnoApellidos = $alumno['apellidos'];
+            $alumnoNombres = $alumno['nombres'];  
+            header("Location: P2.Registrar asistencia.php?apellidos='$alumnoApellidos'");
+        }
     }
 }
 
@@ -110,13 +120,13 @@ if ($_SERVER["REQUEST_METHOD"] === 'POST') {
 
 
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
-    <script src="https://unpkg.com/multiple-select@1.5.2/dist/multiple-select.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js?v=<?php echo time(); ?>"></script>
+    <script src="https://unpkg.com/multiple-select@1.5.2/dist/multiple-select.min.js?v=<?php echo time(); ?>"></script>
     <script>
         //PARA QUE APAREZCA LO DE MULTIPLE SELECCIÓN
-        $(function() {
+        $(function(){
             $('select').multipleSelect()
-        })
+        });
 
         //ESTA ES UNA FUNCION PARA VER A LOS SELECCIONADOS, POR SI LES SIRVE, COMPAÑERES atte. Valeria:V
 
@@ -133,5 +143,7 @@ if ($_SERVER["REQUEST_METHOD"] === 'POST') {
         });*/
     </script>
     <script src="../codigo/assets/js/sidebar.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11?v=<?php echo time(); ?>"></script>
+    <script src="assets/js/registerAsistenciaLogic.js?v=<?php echo time(); ?>"></script>
 
 </body>

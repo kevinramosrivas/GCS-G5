@@ -21,7 +21,7 @@
                 <span class="tooltip">Notas</span>
             </li>
             <li>
-                <a href="inasistencias_padre.php">
+                <a href="asistencia_padre.php">
                     <i class='bx bxs-x-square'></i>
                     <span class="links_name">Reporte de Faltas</span>
                 </a>

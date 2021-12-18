@@ -13,11 +13,18 @@
 
 
         //eliminamos primero el padre y luego el alumno
+        
+        $sql = "DELETE FROM `nota` WHERE `nota`.`alum_id` = '$alum_id';";
+        mysqli_query($conexion, $sql);
+
         $sql = "DELETE FROM `padre` WHERE `padre`.`padre_id` = '$dni';";
         mysqli_query($conexion, $sql);
 
         $sql = "DELETE FROM `alumno` WHERE `alumno`.`alum_id` = '$alum_id';";
         mysqli_query($conexion, $sql);
+
+
+
         header("location: ../busquedaEliminarUsuario.php?mensaje=1");
     }
     if($tipoUsuario === "Docente"){
@@ -33,5 +40,10 @@
         $sql = "DELETE FROM `docente` WHERE `docente`.`docente_id` = '$dni';";
         mysqli_query($conexion, $sql);
         header("location: ../busquedaEliminarUsuario.php?mensaje=1");
+
+
+       
+
+
     }
 ?>

@@ -1,6 +1,3 @@
-<?php
-    session_start();
-?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -49,7 +46,7 @@
                       </ul>
                       <div class="tab-content pt-3">
                         <div class="tab-pane active">
-                          <form class="form" novalidate="" method="POST" action="src/editar_docente.php">
+                          <form class="form" novalidate="" method="POST" action="src/editar_padre.php">
                             <div class="row">
                               <div class="col">
                                 <div class="row">
@@ -62,7 +59,7 @@
                                   <div class="col">
                                     <div class="form-group">
                                       <label>Teléfono</label>
-                                      <input class="form-control" type="number" name="celular" placeholder="***-***-***" value="<?php echo $_SESSION['datos_usuario']['celular']?>">
+                                      <input class="form-control" type="tel" name="celular" placeholder="***-***-***" value="<?php echo $_SESSION['datos_usuario']['celular']?>">
                                     </div>
                                   </div>
                                 </div>
@@ -74,14 +71,6 @@
                                     </div>
                                   </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col">
-                                      <div class="form-group">
-                                        <label>Dirección:</label>
-                                        <input class="form-control" type="text" name="direccion" placeholder="Los Olivos - Comas" value="<?php echo $_SESSION['datos_usuario']['direccion'] ?>" >
-                                      </div>
-                                    </div>
-                                  </div>
                               </div>
                             </div>
                             <div class="row">

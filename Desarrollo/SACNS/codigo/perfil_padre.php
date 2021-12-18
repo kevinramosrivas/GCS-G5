@@ -1,6 +1,3 @@
-<?php
-    session_start();
-?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -42,20 +39,26 @@
                     <div class="panel">
                         <h4 class="red">Información Personal</h4>
                         <p>Nombre Completo: <?php echo $_SESSION['datos_usuario']['nombres'].' '.$_SESSION['datos_usuario']['apellidos'] ?> </p>
-                        <p>Edad: <?php echo $_SESSION['datos_usuario']['edad'] ?> </p>
                         <p>Teléfono: <?php echo $_SESSION['datos_usuario']['celular'] ?> </p>
                         <p>Correo electronico: <?php echo $_SESSION['datos_usuario']['email'] ?> </p>
-                        <p>Dirección:  <?php echo $_SESSION['datos_usuario']['direccion'] ?> </p>
-                        <p>DNI: <?php echo $_SESSION['datos_usuario']['dni'] ?> </p>
-                        <p>Tipo de Usuario: Docente</p>
+                        <p>DNI: <?php echo $_SESSION['datos_usuario']['padre_id'] ?> </p>
+                        <p>Tipo de Usuario: Padre</p>
                     </div>
                 </div>
                 <div class="bio-desk">
                     <div class="panel">
+                        <?php
+                            include("src/conexion_db.php");
+                            $alum_id = $_SESSION['datos_usuario']['alum_id'];
+                            $sql = "SELECT * FROM `alumno` WHERE alum_id = '$alum_id' ;";
+                            $alum = mysqli_query($conexion, $sql);
+                            $alumno = mysqli_fetch_array($alum); 
+                        ?>
                         <h4 class="terques">Datos Academicos </h4>
-                        <p>Código: <?php echo $_SESSION['datos_usuario']['docente_id'] ?> </p>
-                        <p>Correo Institucional: <?php echo $_SESSION['datos_usuario']['correo_insti'] ?> </p>
-                        <p>Especialidad: <?php echo $_SESSION['datos_usuario']['especialidad'] ?> </p>
+                        <p>Código del alumno: <?php echo $alumno['alum_id'];?> </p>
+                        <p>Nombre del alumno: <?php echo $alumno['nombres'] ?> </p>
+                        <p>Apellido del alumno: <?php echo $alumno['apellidos'] ?> </p>
+                        <p>Grado del alumno: <?php if($alumno['nivel_id']){echo "1 secundaria";} ?> </p>
                     </div>
                 </div>
             </div>

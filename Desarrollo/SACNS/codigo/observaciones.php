@@ -32,8 +32,9 @@
     </style>
 </head>
   <body>
+    <?php require_once('src/info_perfil_docente.php') ?>
     <?php require_once('includes/sidebar_docente.php') ?>
-   
+
     <div class="container mt-5 ml-5 p-5">
       <div class="container-fluid p-0">
       <h1 class="h3">Observaciones de Salones a cargo</h1>
@@ -44,96 +45,52 @@
               <div class="card-actions float-right">
                 
               </div>
-              <h4 class="subtext">Grado :</h4>
+              <h4 class="subtext">Profesor :</h4>
 
-              <h6 class="sub2"><img src="../Imagenes/chack.png" width="30" height="30" class="rounded-circle my-n1" alt="Avatar"> Numero de Cursos</h6>
+              <h6 class="sub2"><img src="../Imagenes/chack.png" width="30" height="30" class="rounded-circle my-n1" alt="Avatar"></h6>
             </div>
             <div class="card-body">
               <table class="table table-striped" style="width:100%" style="height:100;">
                 <thead>
                   <tr>
-                    <th>#</th>
+                    <th>Código</th>
                     <th>Curso</th>
                     <th>Grado</th>
-                    <th>Estado</th>
                     <th> </th>
                   </tr>
                 </thead>
                 <tbody>
+                    <?php
+                      include("src/conexion_db.php");
+                      $id_asignatura = $_SESSION['datos_usuario']['asignatura_id'];
+                      $consulta = "SELECT * FROM asignatura WHERE asignatura_id = $id_asignatura ";
+                      $resultado = mysqli_query($conexion, $consulta);
+                      while($curso = mysqli_fetch_array($resultado)){                     
+                    ?>
+
                   <tr id="lol">
-                    <td><img src="../Imagenes/mate.jpg" width="32" height="32" class="rounded-circle my-n1" alt="Avatar"></td>
-                    <td>Matematica</td>
-                    <td>6to Grado</td>
-                    <td><div class="progress" style="height: 3px;">
-                      <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>25%</td>
-                    <td> <div class="btn custom-btn vertical">
-                        ...
-                    </div></td>
+
+                    <td><?php echo  $curso['asignatura_id']?></td>
+                    <td><?php echo  $curso['nombre']?></td>
+                    <td><?php echo  $curso['nivel_id']?></td>
+                    <?php
+                    $cursito = $curso['asignatura_id'];
+                    $nom = $curso['nombre'];
+                    $niv = $curso['nivel_id'];
+                    ?>
+                    <td><button onclick="location.href= 'registro_observacionesp.php?cursito=<?php echo $cursito ?>&nom=<?php echo $nom?>&niv=<?php echo $niv?>'" type="button" class="btn btn-primary"  >Ver</button><td>
+
+
                   </tr>
-                  <tr>
-                    <td><img src="../Imagenes/mate.jpg" width="32" height="32" class="rounded-circle my-n1" alt="Avatar"></td>
-                    <td>Matematica</td>
-                    <td>5to Grado</td>
-                    <td><div class="progress" style="height: 3px;">
-                      <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>25%</td>
-                    <td> <div class="btn custom-btn vertical">
-                        ...
-                    </div></td>
-                  </tr>
-                  <tr>
-                    <td><img src="../Imagenes/mate.jpg" width="32" height="32" class="rounded-circle my-n1" alt="Avatar"></td>
-                    <td>Matematica</td>
-                    <td>4to Grado</td>
-                    <td><div class="progress" style="height: 3px;">
-                      <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>25%</td>
-                    <td> <div class="btn custom-btn vertical">
-                        ...
-                    </div></td>
-                  </tr>
-                  <tr>
-                    <td><img src="../Imagenes/mate.jpg" width="32" height="32" class="rounded-circle my-n1" alt="Avatar"></td>
-                    <td>Matematica</td>
-                    <td>3to Grado</td>
-                    <td><div class="progress" style="height: 3px;">
-                      <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>25%</td>
-                    <td> <div class="btn custom-btn vertical">
-                        ...
-                    </div></td>
-                  </tr>
-                  <tr>
-                    <td><img src="../Imagenes/mate.jpg" width="32" height="32" class="rounded-circle my-n1" alt="Avatar"></td>
-                    <td>Matematica</td>
-                    <td>2do Grado</td>
-                    <td><div class="progress" style="height: 3px;">
-                      <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>25%</td>
-                    <td> <div class="btn custom-btn vertical">
-                        ...
-                    </div></td>
-                  </tr>
-                  <tr>
-                    <td><img src="../Imagenes/mate.jpg" width="32" height="32" class="rounded-circle my-n1" alt="Avatar"></td>
-                    <td>Matematica</td>
-                    <td>1er Grado</td>
-                    <td><div class="progress" style="height: 3px;">
-                      <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>25%</td>
-                    <td> <div class="btn custom-btn vertical">
-                        ...
-                    </div></td>
-                  </tr>
+                  <?php
+                    }
+                    ?>
                   
                 </tbody>
               </table>
             </div>
           </div>
-        </div>
-  
-        
+        </div>        
       </div>
   
     </div>

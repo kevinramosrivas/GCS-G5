@@ -1,4 +1,4 @@
-
+<?php require_once('src/validar_sesion.php') ?>
 <div class="sidebar">
         <div class="logo-details">
             <div id="logoprin" class='bx bxs-graduation icon' color="blue"></div>
@@ -14,7 +14,7 @@
                 <span class="tooltip">Principal</span>
             </li>
             <li>
-                <a href="cursos_padre.php">
+                <a href="padre_notas.php">
                     <i class='bx bx-notepad'></i>
                     <span class="links_name">Reporte de Notas</span>
                 </a>

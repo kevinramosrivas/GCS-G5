@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -52,7 +53,13 @@
                   </thead>
                   
                 </table>
-  
+                <?php
+                      include("src/conexion_db.php");
+                      $id_alumno = $_SESSION['datos_usuario']['alum_id'];
+                      $consulta = "SELECT * FROM observación WHERE id_alum = $id_alumno ";
+                      $resultado = mysqli_query($conexion, $consulta);
+                      while($obs = mysqli_fetch_array($resultado)){                     
+                ?>
                 <div class="container justify-content-center m-2 p-4" id="datos">
                   <table  style="width:100%" style="height:100;">
                     <thead>
@@ -61,80 +68,48 @@
                     <tbody>
                       <tr >
                         <td>
-                        <p>Matematicas</p>
-                        <p>Horario: 8:00 - 11:00 am</p>
-                        <p>Observacion detallada 1</p>
+                        <p><?php 
+                        $idasig = $obs['id_asig'];
+                         $consul2 = "SELECT nombre FROM asignatura WHERE asignatura_id = $idasig";
+                         $resultado2 = mysqli_query($conexion, $consul2);
+                         $nombreasig = mysqli_fetch_array($resultado2);
+                         $estado =  $obs['estado'];
+                         echo $nombreasig['nombre'];
+                         ?></p>
                         </td>
                         <td>
-  
+                        <?php echo  $obs['descripción']?>
                         </td>
+
                         <td>
-                        <a href="htt://sitioweb.com/a"><button class="btn btn-info" style="background: #4FD1C5; color: #FFFFFF;"> Revisado </button></a>
+                        <?php echo  $obs['fecha_observacion']?>
                         </td>
+
                         <td>
-                        14/08/21
+                        
+                        <?php
+                        if($estado==1){
+                        ?>
+                        <button class="btn btn-info" style="background: #4FD1C5; color: #FFFFFF;" disabled> Revisado </button></a>
+                        <?php
+                          }
+                        ?>
+                        <?php
+                        if($estado==0){
+                        ?>
+                        <a class="btn btn-warning" style="background: #E60026; color: #FFFFFF;" href="estado.php?idobs=<?php echo $obs['obs_id']?>">No Revisado </button></a>
+                        <?php
+                          }
+                        ?>
                         </td>
                       </tr>  
                     </tbody>
   
                   </table>
                 </div>
-
-                <div class="container justify-content-center m-2 p-4" id="datos">
-                  <table  style="width:100%" style="height:100;">
-                    <thead>
-                      
-                    </thead>
-                    <tbody>
-                      <tr >
-                        <td>
-                        <p>Ingles</p>
-                        <p>Horario: 8:00 - 11:00 am</p>
-                        <p>Observacion detallada 1</p>
-                        </td>
-                        <td>
-  
-                        </td>
-                        <td>
-                        <a href="htt://sitioweb.com/a"><button class="btn btn-info" style="background: #4FD1C5; color: #FFFFFF;"> Revisado </button></a>
-                        </td>
-                        <td>
-                        19/08/21
-                        </td>
-                      </tr>  
-                    </tbody>
-  
-                  </table>
-                 
-                </div>
-                
-              <div class="container justify-content-center m-2 p-4" id="datos">
-                <table  style="width:100%" style="height:100;">
-                  <thead>
-                    
-                  </thead>
-                  <tbody>
-                    <tr >
-                      <td>
-                      <p>Arte</p>
-                      <p>Horario: 8:00 - 11:00 am</p>
-                      <p>Observacion detallada 1</p>
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-                      <a href="htt://sitioweb.com/a"><button class="btn btn-info" style="background: #4FD1C5; color: #FFFFFF;"> Revisado </button></a>
-                      </td>
-                      <td>
-                      19/08/21
-                      </td>
-                    </tr>  
-                  </tbody>
-
-                </table>
-               
-              </div>
+                <?php
+                    }
+                  ?>
 
           </div>
         </div>

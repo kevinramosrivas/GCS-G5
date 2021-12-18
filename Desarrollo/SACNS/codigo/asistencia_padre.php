@@ -1,3 +1,15 @@
+<?php
+session_start();
+?>
+
+<?php
+
+require_once '../codigo/src/conexion_db.php';
+
+$consulta = "SELECT nombre,fecha, descripción FROM asignatura,falta_asistencia WHERE falta_asistencia.asignatura_id = asignatura.asignatura_id AND ". $_SESSION['datos_usuario']['alum_id'] ."=falta_asistencia.alum_id";
+$res = mysqli_query($conexion, $consulta);
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -32,72 +44,7 @@
     </style>
 </head>
   <body>
-    <div class="sidebar">
-      <div class="logo-details">
-          <div id="logoprin" class='bx bxs-graduation icon' color="blue"></div>
-          <div class="logo_name">E. SAN MARCOS</div>
-          <i class='bx bx-menu' id="btn"></i>
-      </div>
-      <ul class="nav-list d-none" id="nav-list">
-          <li>
-              <a href="..\codigo\perfil_padre.php" onclick="">
-                  <i class='bx bx-building-house'></i>
-                  <span class="links_name">Principal</span>
-              </a>
-              <span class="tooltip">Principal</span>
-          </li>
-          <li>
-              <a href="..\codigo\tablas_notas_padre.php">
-                  <i class='bx bx-notepad'></i>
-                  <span class="links_name">Registro de Notas</span>
-              </a>
-              <span class="tooltip">Notas</span>
-          </li>
-          <li>
-              <a href="..\codigo\inasistencias_padre.php">
-                  <i class='bx bxs-x-square'></i>
-                  <span class="links_name">Registro de Faltas</span>
-              </a>
-              <span class="tooltip">Faltas</span>
-          </li>
-          <li>
-              <a href="..\codigo\observaciones_padre.php">
-                  <i class='bx bx-file-find'></i>
-                  <span class="links_name">Generar Observaciones</span>
-              </a>
-              <span class="tooltip">Observaciones</span>
-          </li>
-          <div id="hogar">
-              <p>Tu cuenta</p>
-          </div>
-          <li>
-              <a href="../codigo/Modulo_Docente_Frontend/1.1 Editar Perfil/P1.Editar_Perfil.php">
-                  <i class='bx bxs-wrench'></i>
-                  <span class="links_name">Editar</span>
-              </a>
-              <span class="tooltip">Editar</span>
-          </li>
-          <li>
-              <a href="..\codigo\login.php">
-                  <i class='bx bx-exit'></i>
-                  <span class="links_name">Salir</span>
-              </a>
-              <span class="tooltip">Salir</span>
-          </li>
-          <div id="hogar2">
-              <p>Documentación</p>
-          </div>
-          <li>
-              <a href="#">
-                  <i class='bx bx-help-circle'></i>
-                  <span class="links_name">Ayuda</span>
-              </a>
-              <span class="tooltip">Ayuda</span>
-          </li>
-      </ul>
-  </div>
-   
-
+    <?php require_once('includes/sidebar_padre.php') ?>
     <div class="container mt-4 ml-4 p-4">
         <div class="container-fluid p-0">
         <h1 class="h3">Asistencia</h1>
@@ -107,86 +54,34 @@
               <div class="card-header pb-0">
                 
                 <table  style="width:100%" style="height:100;">
+                                    
+                <table  style="width:100%" style="height:100;">
                   <thead>
                     <tr>
                       <th>Asignatura</th>
                       <th class="fecha">Fecha</th>
-                      <th>Ausencias</th>
+                      <th>Descripción</th>
                     </tr>
                   </thead>
                   
                 </table>
-  
+                <?php while($mostrar = mysqli_fetch_array($res)):?>
                 <div class="container justify-content-center m-3 p-4" id="datos">
                   <table  style="width:100%" style="height:100;">
                     <thead>
-                      
                     </thead>
                     <tbody>
                       <tr >
-                        <td>
-                        <p>Matematicas</p>
-                        <p>Horario: 8:00 - 11:00 am</p>
-                        </td>
-                        <td>
-                          14/08/21
-                          </td>
-                          <td class="text-center"; >
-                              <input type="text" id="name" name="name"  minlength="18" maxlength="18" size="18">
-                          </td>    
-                      </tr>  
+                        <td class="text-center" style="color: #718096; line-height: 140%; font-size: 20px;"><?php echo $mostrar['nombre']?></td>
+                        <td class="text-center" style="color: #718096; line-height: 140%; font-size: 20px;"><?php echo $mostrar['fecha']?></td>
+                        <td class="text-center" style="color: #718096; line-height: 140%; font-size: 20px;"><?php echo $mostrar['descripción']?></td>
+                      </tr>
                     </tbody>
-  
-                  </table>
-                 
-                </div> 
-  
-                <div class="container justify-content-center m-2 p-4" id="datos">
-                  <table  style="width:100%" style="height:100;">
-                    <thead>
-                      
-                    </thead>
-                    <tbody>
-                      <tr >
-                        <td>
-                        <p>CTA</p>
-                        <p>Horario: 8:00 - 11:00 am</p>
-                        </td>
-                        <td>
-                          15/08/21
-                          </td>
-                          <td class="text-center"; >
-                              <input type="text" id="name" name="name" required  minlength="18" maxlength="18" size="18">
-                          </td>    
-                      </tr>  
-                    </tbody>
-  
                   </table>
                 </div>
-
-                <div class="container justify-content-center m-2 p-4" id="datos">
-                  <table  style="width:100%" style="height:100;">
-                    <thead>
-                      
-                    </thead>
-                    <tbody>
-                      <tr >
-                        <td>
-                        <p>Ingles</p>
-                        <p>Horario: 8:00 - 10:00 am</p>
-                        </td>
-                        <td>
-                          15/09/21
-                          </td>
-                          <td class="text-center"; >
-                              <input type="text" id="name" name="name" required  minlength="18" maxlength="18" size="18">
-                          </td>    
-                      </tr>  
-                    </tbody>
+                <?php endwhile;?>
   
-                  </table>
-                </div>
-
+                </table>
               </div>
               </div>
           </div>

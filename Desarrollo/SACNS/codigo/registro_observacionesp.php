@@ -77,7 +77,7 @@
                                         </div>
                                         <center>
                                             <div class="container mt-5">
-                                                <button class="btn btn-success btn-lg" type="submit" onclick="grabado()"><i class='bx bxs-eraser' ></i>Registrar</button>
+                                                <button class="btn btn-success btn-lg" type="submit"><i class='bx bxs-eraser' ></i>Registrar</button>
                                                 <button class="btn btn-danger btn-lg" type="reset"><i class='bx bxs-eraser' ></i>Borrar</button>
                                             </div>
                                         </center>
@@ -95,16 +95,4 @@
             <script src="https://unpkg.com/multiple-select@1.5.2/dist/multiple-select.min.js"></script>
             <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
             <script src="assets/js/sidebar.js"></script>
-            <script>
-            function grabado(){
-            Swal.fire =>({
-            position: 'top-end',
-            icon: 'success',
-            title: 'Your work has been saved',
-            showConfirmButton: false,
-            timer: 1500
-            })
-            }
-
-        </script>
 </body>

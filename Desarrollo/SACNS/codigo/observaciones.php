@@ -46,8 +46,6 @@
                 
               </div>
               <h4 class="subtext">Profesor :</h4>
-
-              <h6 class="sub2"><img src="../Imagenes/chack.png" width="30" height="30" class="rounded-circle my-n1" alt="Avatar"></h6>
             </div>
             <div class="card-body">
               <table class="table table-striped" style="width:100%" style="height:100;">
